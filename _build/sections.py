@@ -1,7 +1,8 @@
 from shell import *
 
 def row(u, t, dsc):
-    return f'<a class="card" href="{u}"><div><div class="card-t">{t}</div><div class="card-d">{dsc}</div></div><span class="arrow">→</span></a>'
+    d = f'<div class="card-d">{dsc}</div>' if dsc else ''
+    return f'<a class="card" href="{u}"><div><div class="card-t">{t}</div>{d}</div><span class="arrow">→</span></a>'
 
 P = {}
 
@@ -18,46 +19,42 @@ P['index.html'] = ('Главная', f'''
 
 P['razdel-zvonki.html'] = ('Звонки', f'''
 <a class="back" href="index.html">← Главная</a>
-<div class="head"><h1>Звонки</h1><p>Выбери воронку — откроется алгоритм звонка</p></div>
-<h2 style="margin-top:0">Алгоритмы по воронкам</h2>
+<div class="head"><h1>Звонки</h1></div>
 <div class="list">
-{row('reg1.html','Рег1: новые регистрации','Зарегистрировался, но не запустил рекламу')}
-{row('vebinary.html','Участники вебинаров','Выясняем задачу и первый шаг')}
-{row('pervyj-platezh.html','Заканчивается первый платёж','На балансе осталось на несколько дней')}
-{row('otvaly.html','Отвалы','Реклама остановилась, баланс не пополняется')}
-{row('pbn-ne-zapushen.html','PBN: создан, но не запущен','Начал настраивать и остановился')}
-{row('pbn-26-37.html','PBN: 26 и 37 день','Посуточное списание, проект не должен остановиться')}
-{row('obzvon-direkt-2025.html','Обзвон базы Директ 2025','Запускали Директ через платформу в 2025 году и перестали')}
-</div>
-<h2>После звонка и для развития</h2>
-<div class="list">
-{row('voprosy.html#t-objections','Возражения','«Дорого», «подумаю», «нет времени» — готовые ответы')}
-{row('instr-statusy.html','Статусы сделок','Когда «Принимают решение», когда Fail')}
-{row('obuchenie/razbor-zvonkov.html','Примеры хороших и слабых звонков','Разбор по 6 шагам')}
+{row('reg1.html','Алгоритм звонка PromoPult','')}
+{row('vebinary.html','Звонки участникам вебинаров','')}
+{row('pervyj-platezh.html','Алгоритм звонка — воронка «Заканчивается первый платеж»','')}
+{row('otvaly.html','Алгоритм звонка — воронка «Отвалы»','')}
+{row('pbn-ne-zapushen.html','Алгоритм звонка — воронка «PBN проект создан, но не запущен»','')}
+{row('pbn-26-37.html','Алгоритм звонка — PBN (26 и 37 день)','')}
+{row('obzvon-direkt-2025.html','Методичка: обзвон базы клиентов Яндекс Директ 2025','')}
+{row('instr-statusy.html','Воронки и статусы — как работать правильно','')}
+{row('obuchenie/razbor-zvonkov.html','Примеры хороших и слабых звонков','')}
+{row('voprosy.html#t-objections','Возражения','')}
 </div>
 ''')
 
 P['razdel-messendzhery.html'] = ('Мессенджеры', f'''
 <a class="back" href="index.html">← Главная</a>
-<div class="head"><h1>Мессенджеры</h1><p>WhatsApp, Telegram, MAX и Salesbot</p></div>
+<div class="head"><h1>Мессенджеры</h1></div>
 <div class="list">
-{row('instr-pervym.html','Как написать клиенту первым','WhatsApp, Telegram, MAX из amoCRM')}
-{row('shablony-voronki.html','Шаблоны сообщений по воронкам','Рег1, отвалы, первый платёж, Wildberries — скопировать и отправить')}
-{row('shablony-salesbot.html','Salesbot: какой шаблон отправить после недозвона','Таблица «ситуация → бот» и тексты, которые получит клиент')}
-{row('instr-salesbot.html','Salesbot: как запустить бота','Если что-то не получается — пошагово со скриншотами')}
-{row('obuchenie/messendzhery.html','Обучение: работа в мессенджерах','Полная версия — правила переписки, сценарии касаний, приоритеты каналов')}
+{row('instr-pervym.html','Как написать первым — WhatsApp, Telegram, MAX','')}
+{row('shablony-voronki.html','Шаблоны сообщений по воронкам','')}
+{row('instr-salesbot.html','Salesbot: шаблоны в мессенджеры за один клик','')}
+{row('shablony-salesbot.html','Шаблоны сообщений Salesbot для воронки рег.1','')}
+{row('obuchenie/messendzhery.html','Работа в мессенджерах WhatsApp · Telegram · MAX','')}
 </div>
 ''')
 
 P['razdel-bonusy.html'] = ('Бонусная программа', f'''
 <a class="back" href="index.html">← Главная</a>
-<div class="head"><h1>Бонусная программа</h1><p>Ставки, промокод, вывод бонусов, агентства</p></div>
+<div class="head"><h1>Бонусная программа</h1></div>
 <a class="btn" href="https://promopult.ru/partners.html" target="_blank">Открыть калькулятор бонусов ↗</a>
 <div class="list">
-{row('bonus-stavki.html','Ставки и промокод '+'<span data-b="code"></span>','Главные цифры, как продавать, что делаем и не делаем')}
-{row('instr-vyvod.html','Вывод бонусов клиенту','Перевод баллов, реквизиты, 2–3 дня')}
-{row('instr-agentstvo.html','Статус агентства','Критерии и как поставить')}
-{row('voprosy.html#t-bonus','Вопросы про бонусы','Перенос аккаунта, кредитная линия, закон о 3%')}
-{row('obuchenie/bonusnaya-programma.html','Обучение: бонусная программа','Полная версия — примеры расчёта, скрипты, возражения')}
+{row('bonus-stavki.html','Шпаргалка: ключевые факты','')}
+{row('instr-vyvod.html','Как работает вывод бонусов — важно знать каждому','')}
+{row('instr-agentstvo.html','Агентства — отдельные правила и статус','')}
+{row('obuchenie/bonusnaya-programma.html','Бонусная программа PromoPult — обучение для менеджеров по продажам','')}
+{row('voprosy.html#t-bonus','Вопросы про бонусы','')}
 </div>
 ''')

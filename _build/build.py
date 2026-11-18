@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0, '/home/claude/build')
 from shell import page, SEARCH
-import algos, pages, shablony, sections
+import algos, pages, shablony, sections, verbatim
 
 OUT = '/home/claude/site/'
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded',function(){
 </script>'''
 
 ALL = {}
-for mod in (algos, pages, shablony, sections):
+for mod in (algos, pages, shablony, sections, verbatim):
     for fn, v in mod.P.items():
         ALL[fn] = v
 ALL['voprosy.html'] = ('Вопросы и возражения', VOPROSY_BODY, True, VOPROSY_JS)

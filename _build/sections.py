@@ -6,7 +6,7 @@ def row(u, t, dsc):
 P = {}
 
 P['index.html'] = ('Главная', f'''
-<div class="head"><h1>Справочник менеджера</h1><p>PromoPult · Рег1 — всё для работы в одном месте</p></div>
+<div class="head"><h1>Справочник менеджера</h1><p>PromoPult — всё для работы менеджера в одном месте</p></div>
 {SEARCH}
 <div class="grid">
   <a class="card" href="razdel-zvonki.html"><svg><use href="#i-head"/></svg><div class="card-t">Звонки</div><div class="card-d">Алгоритмы по воронкам, статусы сделок, разбор звонков</div></a>

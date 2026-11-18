@@ -19,7 +19,7 @@ def page(title, body, faq=False, extra_js=''):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title} — Справочник менеджера</title>
+<title>{title} — PromoPult · Справочник менеджера</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -27,7 +27,7 @@ def page(title, body, faq=False, extra_js=''):
 {ICONS}
 <div class="wrap">
 {body}
-<div class="foot">Справочник менеджера PromoPult · Рег1</div>
+<div class="foot">PromoPult · Справочник менеджера</div>
 </div>
 {js}{extra_js}
 </body>

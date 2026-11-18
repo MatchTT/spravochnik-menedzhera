@@ -10,14 +10,14 @@ async function sha(text) {
 }
 
 function loginPage(error) {
-  return new Response(`<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Вход — Справочник менеджера</title>
+  return new Response(`<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Вход — PromoPult · Справочник менеджера</title>
 <style>body{font-family:system-ui,sans-serif;background:#f6f6f7;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;color:#18181b}
 form{background:#fff;border:1px solid #e4e4e7;border-radius:14px;padding:28px;width:100%;max-width:340px}
 h1{font-size:20px;margin:0 0 4px}p{color:#71717a;font-size:14px;margin:0 0 18px}
 input{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #e4e4e7;border-radius:10px;font-size:15px;margin-bottom:12px}
 button{width:100%;padding:12px;border:none;border-radius:10px;background:#18181b;color:#fff;font-size:15px;cursor:pointer}
 .err{color:#dc2626;font-size:13px;margin:-4px 0 12px}</style></head><body>
-<form method="POST" action="/__login"><h1>Справочник менеджера</h1><p>PromoPult · Рег1. Введите пароль.</p>
+<form method="POST" action="/__login"><h1>Справочник менеджера</h1><p>PromoPult. Введите пароль.</p>
 ${error ? '<div class="err">Неверный пароль</div>' : ''}
 <input type="password" name="password" placeholder="Пароль" autofocus required>
 <button type="submit">Войти</button></form></body></html>`, { status: 401, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });

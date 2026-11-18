@@ -1,8 +1,0 @@
-{
-  // Настройка сайта для Cloudflare: отдаём файлы из корня репозитория как есть
-  "name": "spravochnik-menedzhera",
-  "compatibility_date": "2026-11-01",
-  "assets": {
-    "directory": "./"
-  }
-}

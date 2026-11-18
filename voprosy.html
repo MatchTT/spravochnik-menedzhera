@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Вопросы и возражения — Справочник менеджера</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<svg style="display:none" aria-hidden="true">
+<symbol id="i-head" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 15a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2z"/><path d="M3 15a2 2 0 0 0 2 2h1v-5H5a2 2 0 0 0-2 2z"/><path d="M18 17v1a3 3 0 0 1-3 3h-3"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></symbol>
+<symbol id="i-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+</svg>
+<div class="wrap">
+
+<a class="back" href="index.html">← Главная</a>
+<div class="head"><h1>Вопросы и возражения</h1><p>Ответы из всех обучений и памяток. Ищите по слову или выберите тему.</p></div>
+<div class="search"><div class="search-box"><svg><use href="#i-search"/></svg><input id="fq" placeholder="Поиск: «дорого», «промокод», «PBN», «недозвон»…" autocomplete="off"></div><div class="results" id="fres"></div></div>
+<div class="tags" id="tags"></div>
+<div class="faq" id="list"></div>
+
+<div class="foot">Справочник менеджера PromoPult · Рег1</div>
+</div>
+<script src="assets/app.js"></script>
+<script src="assets/faq.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var topic='', q='';
+  var h=location.hash.slice(1);
+  if(h.indexOf('t-')===0){ var ix=TOPIC_IDS.indexOf(h.slice(2)); if(ix>-1) topic=TOPICS[ix]; }
+  try{ q=sessionStorage.getItem('q')||''; sessionStorage.removeItem('q'); }catch(err){}
+  var inp=document.getElementById('fq'); inp.value=q;
+  var tags=document.getElementById('tags');
+  tags.innerHTML=['Все'].concat(TOPICS).map(function(t){return '<button data-t="'+(t==='Все'?'':t)+'">'+t+'</button>';}).join('');
+  function render(){
+    tags.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.getAttribute('data-t')===topic);});
+    var words=norm(inp.value.trim()).split(/\s+/).filter(Boolean);
+    var html='', last='';
+    TOPICS.forEach(function(tp){
+      if(topic && tp!==topic) return;
+      FAQ.forEach(function(f,i){
+        if(f.topic!==tp) return;
+        var text=norm(f.q+' '+bt(f.a)+' '+(f.k||''));
+        if(!words.every(function(w){return text.indexOf(w)>-1;})) return;
+        if(last!==tp){ html+='<div class="topic-h">'+tp+'</div>'; last=tp; }
+        html+='<details id="v'+i+'"><summary>'+f.q+'</summary><div class="ans">'+bt(f.a)+'</div>'+(f.src?'<div class="src">Источник: <a href="'+f.src.u+'">'+f.src.t+'</a></div>':'')+'</details>';
+      });
+    });
+    document.getElementById('list').innerHTML=html||'<p style="color:var(--text2);margin-top:12px">Ничего не нашлось. Попробуйте другое слово или тему «Все».</p>';
+    if(location.hash.indexOf('#v')===0){var el=document.querySelector(location.hash); if(el){el.open=true; el.scrollIntoView({block:'center'});}}
+  }
+  tags.onclick=function(e){var b=e.target.closest('button'); if(!b) return; topic=b.getAttribute('data-t'); render();};
+  inp.oninput=render;
+  render();
+});
+</script>
+</body>
+</html>

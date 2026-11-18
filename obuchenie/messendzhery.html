@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Работа в мессенджерах — PromoPult</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #111111;
+  --s1: #1a1a1a;
+  --s2: #212121;
+  --s3: #2a2a2a;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.13);
+  --orange: #F97316;
+  --orange-bg: rgba(249,115,22,0.1);
+  --orange-bd: rgba(249,115,22,0.22);
+  --green: #4ade80;
+  --green-bg: rgba(74,222,128,0.08);
+  --green-bd: rgba(74,222,128,0.2);
+  --red: #f87171;
+  --red-bg: rgba(248,113,113,0.08);
+  --red-bd: rgba(248,113,113,0.2);
+  --amber: #fbbf24;
+  --amber-bg: rgba(251,191,36,0.08);
+  --amber-bd: rgba(251,191,36,0.22);
+  --wa: #25d366;
+  --tg: #38bdf8;
+  --max: #c084fc;
+  --text: #f0f0f0;
+  --text2: #a8a8a8;
+  --text3: #666;
+  --r: 12px;
+  --r-sm: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── STRIP ── */
+.messenger-strip { display: flex; height: 3px; }
+.ms-wa { flex:1; background: var(--wa); }
+.ms-tg { flex:1; background: var(--tg); }
+.ms-max { flex:1; background: var(--max); }
+
+/* ── HERO ── */
+.hero {
+  padding: 60px 24px 52px;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(249,115,22,0.09) 0%, transparent 70%);
+}
+.hero-badge {
+  display: inline-block;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--orange);
+  background: var(--orange-bg);
+  border: 1px solid var(--orange-bd);
+  padding: 4px 14px; border-radius: 99px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(26px, 5vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.hero h1 span { color: var(--orange); }
+.hero-sub {
+  font-size: 15px; color: var(--text2);
+  max-width: 500px; margin: 0 auto 28px;
+  line-height: 1.7;
+}
+.platforms { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.plat {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 16px;
+  background: var(--s1);
+  border: 1px solid var(--border2);
+  border-radius: 99px;
+  font-size: 13px; font-weight: 600;
+}
+.plat-dot { width: 7px; height: 7px; border-radius: 50%; }
+.plat-dot.wa { background: var(--wa); }
+.plat-dot.tg { background: var(--tg); }
+.plat-dot.max { background: var(--max); }
+
+/* ── TOC ── */
+.toc-wrap { max-width: 840px; margin: 0 auto; padding: 0 20px 0; }
+.toc {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px 22px;
+  margin-top: 28px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+  align-items: center;
+}
+.toc-label {
+  font-size: 11px; font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase; letter-spacing: .8px;
+  width: 100%; margin-bottom: 2px;
+}
+.toc a {
+  display: inline-block;
+  font-size: 12px; font-weight: 500;
+  color: var(--text2);
+  text-decoration: none;
+  background: var(--s2);
+  border: 1px solid var(--border);
+  padding: 5px 12px; border-radius: 99px;
+  transition: .15s;
+}
+.toc a:hover { color: var(--orange); border-color: var(--orange-bd); background: var(--orange-bg); }
+
+/* ── LAYOUT ── */
+.page { max-width: 840px; margin: 0 auto; padding: 44px 20px; }
+
+/* ── SECTION ── */
+.section { margin-bottom: 52px; }
+.sec-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.sec-num {
+  width: 30px; height: 30px;
+  background: var(--orange);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; color: #fff; flex-shrink: 0;
+}
+.sec-title {
+  font-size: 19px; font-weight: 800;
+  letter-spacing: -.4px; color: #fff;
+}
+
+/* ── RULE CARDS ── */
+.rules { display: flex; flex-direction: column; gap: 10px; }
+.rule {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 18px 20px;
+  position: relative;
+}
+.rule::before {
+  content: '';
+  position: absolute; left: 0; top: 10px; bottom: 10px;
+  width: 2px; border-radius: 0 2px 2px 0;
+}
+.rule.bad::before { background: var(--red); }
+.rule.good::before { background: var(--green); }
+.rule.info::before { background: var(--orange); }
+.rule.warn::before { background: var(--amber); }
+
+/* WARN-STRONG (интервалы) */
+.rule[style*="fff8f0"] {
+  background: var(--s1) !important;
+  border: 2px solid var(--orange) !important;
+  box-shadow: 0 0 20px rgba(249,115,22,0.1) !important;
+}
+
+.rule-title {
+  font-size: 13px; font-weight: 700;
+  color: #fff;
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 8px;
+}
+.rule-icon { font-size: 16px; }
+.rule-body {
+  font-size: 13px; color: var(--text2); line-height: 1.7;
+}
+.rule-body b, .rule-body strong { color: #fff; font-weight: 600; }
+
+/* ── EXAMPLES ── */
+.example-box {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; margin-top: 14px;
+}
+@media(max-width:560px) { .example-box { grid-template-columns: 1fr; } }
+
+.ex-bad {
+  background: var(--red-bg);
+  border: 1px solid var(--red-bd);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+}
+.ex-good {
+  background: var(--green-bg);
+  border: 1px solid var(--green-bd);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+}
+.ex { background: var(--s2); border-radius: var(--r-sm); padding: 12px 14px; }
+.ex-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 8px; }
+.ex-label.bad { color: var(--red); }
+.ex-label.good { color: var(--green); }
+
+/* ── BUBBLES ── */
+.bubble-wrap { display: flex; flex-direction: column; gap: 5px; }
+.bubble {
+  max-width: 88%; padding: 8px 12px; border-radius: 14px;
+  font-size: 12px; line-height: 1.6; word-break: break-word;
+}
+.bubble.out {
+  background: var(--s3);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.bubble.in {
+  background: var(--s2);
+  color: var(--text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+/* ── HIGHLIGHT BOXES ── */
+.hl-box {
+  background: var(--orange-bg);
+  border: 1px solid var(--orange-bd);
+  border-radius: var(--r-sm);
+  padding: 13px 17px; margin-top: 12px;
+}
+.hl-box p { font-size: 13px; color: var(--text2); line-height: 1.7; }
+.hl-box p b { color: #fff; }
+.hl-box.warn { background: var(--amber-bg); border-color: var(--amber-bd); }
+.hl-box.danger { background: var(--red-bg); border-color: var(--red-bd); }
+
+/* ── CHECKLISTS ── */
+.checklist { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; }
+.ci { display: flex; gap: 9px; align-items: flex-start; font-size: 13px; color: var(--text2); line-height: 1.6; }
+.ci b { color: #fff; }
+.ci-icon {
+  width: 20px; height: 20px; border-radius: 5px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+}
+.ci-icon.ok { background: rgba(74,222,128,0.12); color: var(--green); }
+.ci-icon.no { background: rgba(248,113,113,0.12); color: var(--red); }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border2), transparent);
+  border: none; margin: 44px 0;
+}
+
+/* ── CRM FLOW ── */
+.crm-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
+.crm-step {
+  background: var(--s2); border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 10px 14px; font-size: 12px; font-weight: 600; text-align: center;
+}
+.crm-step span { display: block; font-size: 10px; color: var(--text3); font-weight: 400; margin-top: 2px; }
+.crm-arrow { color: var(--orange); font-size: 18px; padding: 0 4px; }
+
+/* ── DS CARD (нейросети) ── */
+.ds-card {
+  background: var(--orange-bg); border: 1px solid var(--orange-bd);
+  border-radius: var(--r); padding: 18px 20px;
+  margin-top: 12px; display: flex; gap: 14px; align-items: flex-start;
+}
+.ds-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.ds-body .ds-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 5px; }
+.ds-body p { font-size: 12px; color: var(--text2); line-height: 1.6; }
+.ds-body a { color: var(--orange); text-decoration: none; }
+
+/* ── AI GRID (нейросети) ── */
+[style*="grid-template-columns:1fr 1fr"] a,
+.ai-card {
+  background: var(--s2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--r-sm) !important;
+  padding: 12px 14px !important;
+  display: flex !important; gap: 10px !important; align-items: center !important;
+  text-decoration: none !important; transition: .15s !important;
+  color: inherit !important;
+}
+
+/* ── GENDER CARDS ── */
+.gender-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+@media(max-width:560px) { .gender-row { grid-template-columns: 1fr; } }
+.gender-card { background: var(--s2); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 14px; }
+.gender-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--text3); margin-bottom: 10px; }
+.sublabel { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--text3); margin: 14px 0 8px; }
+
+/* ── INSTRUCTION STEPS ── */
+.isteps { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.istep { display: flex; gap: 10px; align-items: flex-start; }
+.istep-num {
+  width: 24px; height: 24px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: #fff; flex-shrink: 0; margin-top: 1px;
+}
+.istep-body { font-size: 13px; color: var(--text2); line-height: 1.6; flex: 1; }
+.istep-body b { color: #fff; }
+.link-ref {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 600; color: var(--orange);
+  background: var(--orange-bg); border: 1px solid var(--orange-bd);
+  padding: 5px 12px; border-radius: 99px; margin-top: 10px;
+  text-decoration: none;
+}
+.video-ref {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2);
+  border-radius: var(--r-sm); padding: 9px 13px;
+  font-size: 12px; font-weight: 600; color: #7dd3fc;
+  margin-top: 8px; text-decoration: none;
+}
+
+/* ── PRIORITY LIST ── */
+.priority-list { display: flex; flex-direction: column; gap: 8px; }
+.pitem { display: flex; gap: 12px; align-items: center; background: var(--s1); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 12px 16px; }
+.pnum { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff; flex-shrink: 0; }
+.pitem-body { flex: 1; }
+.pitem-name { font-size: 13px; font-weight: 700; color: #fff; }
+.pitem-desc { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+/* ── SCENARIO GRID ── */
+.scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media(max-width:560px) { .scenario-grid { grid-template-columns: 1fr; } }
+.scen-good { background: var(--green-bg); border: 1px solid var(--green-bd); border-radius: var(--r-sm); padding: 14px; }
+.scen-bad { background: var(--red-bg); border: 1px solid var(--red-bd); border-radius: var(--r-sm); padding: 14px; }
+.scen-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 8px; }
+.scen-label.good { color: var(--green); }
+.scen-label.bad { color: var(--red); }
+.scen-line { font-size: 12px; color: var(--text2); line-height: 1.85; }
+.scen-note { font-size: 11px; color: var(--text3); margin-top: 7px; line-height: 1.5; }
+
+/* ── FORBIDDEN LIST ── */
+.flist { display: flex; flex-direction: column; gap: 5px; }
+.fitem { font-size: 13px; padding: 9px 14px; background: var(--s2); border-radius: var(--r-sm); border-left: 2px solid; }
+.fitem.no { border-left-color: var(--red); color: #fca5a5; }
+.fitem.yes { border-left-color: var(--green); color: #86efac; }
+
+/* ── VORONKA TABS ── */
+.voronka-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.vtab {
+  padding: 6px 14px; border-radius: 99px;
+  font-size: 12px; font-weight: 600;
+  cursor: pointer; border: 1px solid var(--border);
+  color: var(--text2); background: var(--s1); transition: .15s;
+}
+.vtab.active { background: var(--orange-bg); border-color: var(--orange-bd); color: var(--orange); }
+.vblock { display: none; }
+.vblock.active { display: block; }
+
+/* ── MGRCARDS (приоритеты) ── */
+.mgr-card { background: var(--s1); border: 1px solid var(--border); border-radius: var(--r); padding: 20px 22px; margin-bottom: 14px; }
+.mgr-header { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.mgr-name { font-size: 15px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+.mgr-tag { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 99px; display: inline-block; margin-left: 6px; }
+.mgr-tag.top { background: var(--green-bg); color: var(--green); }
+.mgr-tag.mid { background: var(--amber-bg); color: var(--amber); }
+.mgr-tag.low { background: var(--red-bg); color: var(--red); }
+.mgr-stats { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 7px; }
+.ms { background: var(--s2); border-radius: var(--r-sm); padding: 5px 10px; text-align: center; }
+.ms-n { font-size: 13px; font-weight: 800; color: var(--orange); }
+.ms-l { font-size: 9px; color: var(--text3); margin-top: 1px; }
+.mgr-body { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px; }
+.col-t { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 7px; }
+.col-t.ok { color: var(--green); }
+.col-t.bad { color: var(--red); }
+.mi { font-size: 12px; line-height: 1.6; margin-bottom: 5px; padding-left: 13px; position: relative; color: var(--text2); }
+.mi.p::before { content: '+'; position: absolute; left: 0; font-weight: 700; color: var(--green); }
+.mi.m::before { content: '−'; position: absolute; left: 0; font-weight: 700; color: var(--red); }
+.mgr-focus-box { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text3); line-height: 1.55; font-style: italic; }
+.mgr-focus-box b { color: var(--text); font-style: normal; }
+.mgr-avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #fff; flex-shrink: 0; }
+
+/* ── CALL CARDS ── */
+.call-card { background: var(--s2); border-radius: var(--r-sm); padding: 14px 16px; margin-bottom: 10px; border: 1px solid var(--border); display: none; }
+.call-card.active { display: block; }
+.call-card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 8px; flex-wrap: wrap; }
+.call-card-title { font-size: 12px; font-weight: 800; color: #fff; }
+.call-status { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 99px; white-space: nowrap; }
+.cs-b { background: var(--green-bg); color: var(--green); }
+.cs-r { background: var(--amber-bg); color: var(--amber); }
+.cs-p { background: var(--s3); color: var(--text3); }
+.cs-o { background: var(--red-bg); color: var(--red); }
+.call-text { font-size: 12px; color: var(--text2); line-height: 1.75; font-style: italic; background: var(--s1); border-radius: var(--r-sm); padding: 12px; border: 1px solid var(--border); white-space: pre-wrap; word-break: break-word; }
+.call-analysis { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.ca-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 5px; }
+.ca-label.good { color: var(--green); }
+.ca-label.bad { color: var(--red); }
+.ca-text { font-size: 12px; color: var(--text2); line-height: 1.6; }
+.calls-section { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.calls-title { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.calls-links { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.call-link { font-size: 11px; font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 99px; border: 1px solid; cursor: pointer; display: inline-block; transition: .15s; }
+.call-link.bad { color: var(--red); background: var(--red-bg); border-color: var(--red-bd); }
+.call-link.good { color: var(--green); background: var(--green-bg); border-color: var(--green-bd); }
+.call-link.neu { color: var(--amber); background: var(--amber-bg); border-color: var(--amber-bd); }
+
+/* ── SCREENSHOT ── */
+.screenshot { max-width: 320px; width: 100%; border-radius: var(--r-sm); border: 1px solid var(--border); display: block; margin: 10px 0; }
+
+/* ── MISC ── */
+a { color: var(--orange); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; border-radius: var(--r-sm); }
+
+/* Algo boxes */
+.algo-box { background: var(--s1); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; margin-bottom: 10px; }
+.algo-urgency { font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 99px; text-transform: uppercase; display: inline-block; margin-bottom: 9px; }
+.algo-urgency.now { background: var(--red-bg); color: var(--red); }
+.algo-urgency.week { background: var(--amber-bg); color: var(--amber); }
+.algo-box-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.algo-step { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; }
+.algo-step:last-child { margin-bottom: 0; }
+.algo-num { width: 26px; height: 26px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: #fff; flex-shrink: 0; }
+.algo-num.red { background: var(--red); }
+.at { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.ap { font-size: 12px; color: var(--text2); line-height: 1.6; }
+.ascr { font-size: 12px; font-style: italic; color: var(--text2); background: var(--s2); border-radius: var(--r-sm); padding: 8px 12px; margin-top: 6px; line-height: 1.6; border-left: 2px solid var(--orange-bd); }
+
+/* Compact card */
+.card { background: var(--s1); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; margin-bottom: 12px; }
+.card-title { font-size: 14px; font-weight: 700; margin-bottom: 9px; color: #fff; }
+.card p { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 7px; }
+.card p:last-child { margin-bottom: 0; }
+
+/* Priority in section 11 */
+[style*="border-top-color:#EF9F27"] { border-top-color: var(--orange) !important; }
+[style*="border-top-color:#68d391"] { border-top-color: var(--green) !important; }
+[style*="border-top-color:#7e57c2"] { border-top-color: var(--tg) !important; }
+[style*="border-top-color:#fc8181"] { border-top-color: var(--red) !important; }
+[style*="border-top-color:#63b3ed"] { border-top-color: var(--tg) !important; }
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid #e4e4e7;padding:10px 20px;font:500 13px Inter,system-ui,sans-serif"><a href="../razdel-messendzhery.html" style="color:#71717a;text-decoration:none">← Мессенджеры</a></div>
+
+<div class="messenger-strip"><div class="ms-wa"></div><div class="ms-tg"></div><div class="ms-max"></div></div>
+<div class="hero">
+<div class="hero-badge">📱 Обучение · PromoPult</div>
+<h1>Работа в мессенджерах<br/><span>WhatsApp · Telegram · MAX</span></h1>
+<div class="hero-sub">Правила переписки, работа с AmoCRM и первые сообщения клиентам — всё в одном месте</div>
+<div class="platforms">
+<div class="plat"><div class="plat-dot wa"></div><span style="color:#25d366">WhatsApp</span></div>
+<div class="plat"><div class="plat-dot tg"></div><span style="color:#2ca5e0">Telegram</span></div>
+<div class="plat"><div class="plat-dot max"></div><span style="color:#e040fb">MAX</span></div>
+</div>
+</div>
+<div class="toc-wrap">
+<div class="toc">
+<div class="toc-label">Содержание</div>
+<a href="#s1">Правила переписки</a>
+<a href="#s7">Как написать первым — WA, TG, MAX</a>
+<a href="#s8">Логика коммуникации</a>
+<a href="#s9">Сценарии касаний</a>
+<a href="#s10">Шаблоны по воронкам</a>
+<a href="#s11">Приоритеты каналов</a>
+<a href="#s12">Чего не писать</a>
+</div>
+</div>
+<div class="page">
+<!-- РАЗДЕЛ 1 — ПРАВИЛА ПЕРЕПИСКИ -->
+<div class="section" id="s1">
+<div class="sec-header">
+<div class="sec-num">1</div>
+<div class="sec-title">Правила переписки</div>
+</div>
+<div class="hl-box" style="margin-bottom:16px">
+<p>😄 <b>Все правила ниже основаны на реальных примерах.</b> Имена изменены, совпадения не случайны.</p>
+</div>
+<div class="rules">
+<!-- Восклицательные знаки -->
+<div class="rule bad">
+<div class="rule-title"><span class="rule-icon">🔇</span>Восклицательные знаки</div>
+<div class="rule-body">Несколько восклицательных знаков подряд создают ощущение крика. Клиент чувствует себя некомфортно — даже если мы хотели быть дружелюбными. Один знак допустим где уместен по смыслу. В деловой переписке лучше точка.</div>
+<div class="example-box">
+<div class="ex-bad">
+<div class="ex-label bad">❌ Так не надо</div>
+<div class="bubble-wrap">
+<div class="bubble out">Добрый день!!! Рады вас видеть!! Мы готовы помочь!!! Пишите нам в любое время!</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Так хорошо</div>
+<div class="bubble-wrap">
+<div class="bubble out">Добрый день. Рады помочь — пишите в любое время.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Ссылки -->
+<div class="rule bad">
+<div class="rule-title"><span class="rule-icon">🔗</span>Ссылки в сообщениях</div>
+<div class="rule-body">Ссылка — часть сообщения, не отдельный блок. Когда ссылка отправляется отдельным сообщением после «вот ссылка:» — это выглядит небрежно. Всё должно быть в одном сообщении.</div>
+<div class="example-box">
+<div class="ex-bad">
+<div class="ex-label bad">❌ Так не надо</div>
+<div class="bubble-wrap">
+<div class="bubble out">Вот ссылка на калькулятор:</div>
+<div class="bubble out">https://promopult.ru/partners.html</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Так хорошо</div>
+<div class="bubble-wrap">
+<div class="bubble out">Посчитайте под свой бюджет на калькуляторе: https://promopult.ru/partners.html</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Сокращения -->
+<div class="rule bad">
+<div class="rule-title"><span class="rule-icon">✂️</span>Сокращения и небрежный стиль</div>
+<div class="rule-body">
+<p style="margin-bottom:12px">Мы работаем не на скорость отправки, а на качество коммуникации. Сокращения ухудшают читаемость, делают сообщения небрежными и создают ощущение массовой рассылки. Клиент не должен расшифровывать текст.</p>
+<div class="example-box">
+<div class="ex-bad">
+<div class="ex-label bad">❌ Так не надо</div>
+<div class="bubble-wrap">
+<div class="bubble out">Доб. день! Подск., актуально? Инфу направила. Если что — обр. С ув., Анна</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Так хорошо</div>
+<div class="bubble-wrap">
+<div class="bubble out">Добрый день. Подскажите, актуально? Направила информацию. Если появятся вопросы — я на связи. С уважением, Анна</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Разговорный сленг -->
+<div class="rule bad">
+<div class="rule-title"><span class="rule-icon">🚫</span>Разговорный сленг в деловой переписке</div>
+<div class="rule-body">
+<p style="margin-bottom:12px">Разговорные слова снижают доверие к менеджеру и платформе. Клиент воспринимает это как непрофессионализм — даже если общение дружелюбное. Особенно недопустимы слова физического действия там где речь идёт о документах и информации.</p>
+<div style="background:var(--bg2,#f8f8f8);border-radius:8px;padding:14px 16px;margin-bottom:14px;">
+<div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#999;margin-bottom:10px">Запрещённые слова и правильные замены</div>
+<table style="width:100%;border-collapse:collapse;font-size:13px;">
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">кидала / скинула материалы</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">направила / отправила материалы</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">скинуть на почту</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">отправить / направить на почту</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">глянь / глянуть</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">посмотрите / ознакомьтесь</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">набрать по телефону</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">позвонить</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">созвониться по-быстрому</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">созвониться на несколько минут</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">окей / норм</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">хорошо / принято / всё в порядке</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">погнали / давайте</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">приступим / начнём</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">забить на это</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">оставить без внимания / не учитывать</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">залить / загрузить</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">загрузить / опубликовать</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">чекнуть</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">проверить</td></tr>
+<tr style="border-bottom:1px solid #eee"><td style="padding:6px 8px;color:#dc2626;font-weight:600">дропнуть</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">отменить / удалить</td></tr>
+<tr><td style="padding:6px 8px;color:#dc2626;font-weight:600">прокинуть доступ</td><td style="padding:6px 8px;color:#666">→</td><td style="padding:6px 8px;color:#16a34a;font-weight:600">предоставить доступ</td></tr>
+</table>
+</div>
+<div class="example-box">
+<div class="ex-bad">
+<div class="ex-label bad">❌ Так не надо</div>
+<div class="bubble-wrap">
+<div class="bubble out">Анастасия, добрый день! Пишу из Промопульта. Ранее с вами общались о возможностях платформы и ваших задачах. Удалось зарегистрироваться на промопульте? На почту кидала материалы</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Так хорошо</div>
+<div class="bubble-wrap">
+<div class="bubble out">Анастасия, добрый день! Это Чолпон из PromoPult. Ранее созванивались — обсуждали возможности платформы для ваших задач. Направляла вам материалы на почту по бонусной программе — до 19% возврата от рекламных расходов. Подскажите, удалось зарегистрироваться в PromoPult? Удобно созвониться на несколько минут, чтобы разобраться вместе?</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Орфография и стиль -->
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">✍️</span>Орфография, стиль и нейросети</div>
+<div class="rule-body">
+<p style="margin-bottom:14px">Ошибки в тексте снижают доверие к компании. Перед отправкой перечитываем сообщение. Если нужно красиво сформулировать мысль, написать письмо или придумать ответ на сложный вопрос — используйте любую нейросеть, которая вам доступна и удобна.</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+<a href="https://www.deepseek.com/" style="text-decoration:none" target="_blank">
+<div onmouseout="this.style.borderColor='rgba(255,107,0,0.2)'" onmouseover="this.style.borderColor='rgba(255,107,0,0.5)'" style="background:var(--card2);border:1px solid rgba(255,107,0,0.2);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:center;transition:all .15s">
+<div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#4a90d9,#1a5fa8);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🤖</div>
+<div><div style="font-size:12px;font-weight:700;color:#f0f0f0">DeepSeek</div><div style="font-size:11px;color:#b0b0b0">deepseek.com · бесплатно</div></div>
+</div>
+</a>
+<a href="https://ya.ru/ai/alice" style="text-decoration:none" target="_blank">
+<div onmouseout="this.style.borderColor='rgba(255,107,0,0.2)'" onmouseover="this.style.borderColor='rgba(255,107,0,0.5)'" style="background:var(--card2);border:1px solid rgba(255,107,0,0.2);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:center;transition:all .15s">
+<div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#ff0000,#cc0000);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🔴</div>
+<div><div style="font-size:12px;font-weight:700;color:#f0f0f0">Алиса / YandexGPT</div><div style="font-size:11px;color:#b0b0b0">ya.ru · бесплатно</div></div>
+</div>
+</a>
+<a href="https://gemini.google.com/" style="text-decoration:none" target="_blank">
+<div onmouseout="this.style.borderColor='rgba(255,107,0,0.2)'" onmouseover="this.style.borderColor='rgba(255,107,0,0.5)'" style="background:var(--card2);border:1px solid rgba(255,107,0,0.2);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:center;transition:all .15s">
+<div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#4285f4,#34a853);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">✨</div>
+<div><div style="font-size:12px;font-weight:700;color:#f0f0f0">Gemini (Google)</div><div style="font-size:11px;color:#b0b0b0">gemini.google.com · бесплатно</div></div>
+</div>
+</a>
+<a href="https://gigachat.sber.ru/" style="text-decoration:none" target="_blank">
+<div onmouseout="this.style.borderColor='rgba(255,107,0,0.2)'" onmouseover="this.style.borderColor='rgba(255,107,0,0.5)'" style="background:var(--card2);border:1px solid rgba(255,107,0,0.2);border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:center;transition:all .15s">
+<div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#21a038,#1a7a2d);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">💚</div>
+<div><div style="font-size:12px;font-weight:700;color:#f0f0f0">GigaChat (Сбер)</div><div style="font-size:11px;color:#b0b0b0">gigachat.sber.ru · бесплатно</div></div>
+</div>
+</a>
+</div>
+<div class="hl-box" style="margin-top:0">
+<p>Не важно какой сервис вы используете — важен результат. Попросите нейросеть переформулировать сообщение, сделать его короче или живее, написать письмо или ответить на возражение. Это занимает 30 секунд и сильно повышает качество текста.</p>
+</div>
+<div class="checklist">
+<div class="ci"><div class="ci-icon ok">✓</div><span>Пишем коротко и по делу — клиент не читает длинные портянки текста</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span>Обращаемся по имени — если знаем его из CRM</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span>Один вопрос в одном сообщении — не задаём три вопроса сразу</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не пишем бюрократическим языком: «в целях», «по вопросу», «осуществить»</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не пишем «Доброго времени суток» — пишем «Добрый день» или «Добрый вечер»</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не используем слова «срочно», «немедленно», «обязательно» — создают давление</span></div>
+</div>
+<div class="example-box" style="margin-top:12px">
+<div class="ex-bad">
+<div class="ex-label bad">❌ Бюрократический язык</div>
+<div class="bubble-wrap">
+<div class="bubble out">В целях уточнения информации прошу вас осуществить переход по ссылке и заполнить форму обратной связи.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Живой язык</div>
+<div class="bubble-wrap">
+<div class="bubble out">Чтобы разобраться с вашим вопросом — заполните форму по ссылке, это займёт минуту.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Персонификация -->
+<div class="rule good">
+<div class="rule-title"><span class="rule-icon">🎯</span>Персонификация — каждое сообщение адресно</div>
+<div class="rule-body">
+<p style="margin-bottom:12px">Особенно первое сообщение. Перед отправкой — открываем профиль клиента и смотрим что у него происходит: какой проект, какой статус, что делал в платформе. Клиент должен почувствовать что мы написали именно ему, а не просто нажали «разослать всем».</p>
+<div class="checklist" style="margin-bottom:14px">
+<div class="ci"><div class="ci-icon ok">✓</div><span>Смотрим профиль клиента до написания — проект, канал, статус</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span>Называем конкретный факт из его аккаунта — проект по Директу, SEO, инструмент</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span>Если несколько проектов — называем тот, который сейчас актуален</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не пишем обезличенно: «вы у нас зарегистрировались» без конкретики</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не копируем один шаблон без правок — клиент это чувствует</span></div>
+</div>
+<div class="example-box">
+<div class="ex-bad">
+<div class="ex-label bad">❌ Обезличенно</div>
+<div class="bubble-wrap">
+<div class="bubble out">Михаил, добрый день. Вы у нас зарегистрировались. Подскажите, нужна ли помощь?</div>
+</div>
+<div style="font-size:11px;color:#7b82a8;margin-top:8px">Непонятно зачем пишем, что именно предлагаем и почему сейчас</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Адресно и конкретно</div>
+<div class="bubble-wrap">
+<div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидела, что у вас сейчас приостановился проект по Яндекс Директ. Подскажите, планируете возобновить? Буду рада помочь с запуском.</div>
+</div>
+<div style="font-size:11px;color:#7b82a8;margin-top:8px">Клиент видит: менеджер знает о чём говорит, это не массовая рассылка</div>
+</div>
+<div class="ex-bad">
+<div class="ex-label bad">❌ Один шаблон на всех</div>
+<div class="bubble-wrap">
+<div class="bubble out">Добрый день! Меня зовут [имя]. Хотел уточнить, актуально ли наше предложение?</div>
+</div>
+<div style="font-size:11px;color:#7b82a8;margin-top:8px">Непонятно какое предложение, для кого и почему сейчас</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Под конкретную ситуацию</div>
+<div class="bubble-wrap">
+<div class="bubble out">Михаил, добрый день. Увидел, что вы недавно пробовали инструмент анализа конкурентов — обычно это значит, что реклама в планах. Под какую задачу смотрите? Буду рад помочь.</div>
+</div>
+<div style="font-size:11px;color:#7b82a8;margin-top:8px">Конкретный факт из профиля + логичный вопрос = живой диалог</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Интервалы -->
+<div class="rule" style="background:linear-gradient(135deg,#1a0800,#1f0e00);border:2px solid #F97316;box-shadow:0 0 32px rgba(249,115,22,0.2),inset 0 1px 0 rgba(249,115,22,0.1)">
+<div class="rule-title" style="font-size:15px;color:#fff;gap:10px"><span class="rule-icon">⏱️</span><b style="color:#FB923C">Интервалы между сообщениями</b></div>
+<div class="rule-body" style="color:#e8e8e8">
+<b style="color:#FED7AA;font-size:13px;line-height:1.6;display:block;margin-bottom:8px">Аккаунты в мессенджерах новые, и их восстановление далось нам непросто — пожалуйста, относитесь к ним бережно.</b> Спамные паттерны могут привести к повторной блокировке.
+        <div class="checklist" style="margin-top:12px">
+<div class="ci"><div class="ci-icon ok">✓</div><span style="color:#e8e8e8">Выдерживаем паузу между отправкой сообщений разным новым контактам</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span style="color:#e8e8e8">Не отправляем несколько сообщений подряд в одном чате без ответа клиента</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span style="color:#e8e8e8">Не делаем массовую одинаковую рассылку — по одному, с паузами</span></div>
+</div>
+</div>
+</div>
+<!-- Задачи в CRM -->
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">📋</span>Задачи в AmoCRM</div>
+<div class="rule-body">При получении сообщения от клиента в любом из подключённых мессенджеров — задача создаётся автоматически и попадает в очередь. Вручную ничего делать не нужно. Задача создаётся <b>только на входящее</b> сообщение от клиента.
+        <div class="crm-flow" style="margin-top:14px">
+<div class="crm-step">Клиент написал<span>WhatsApp / TG / MAX</span></div>
+<div class="crm-arrow">→</div>
+<div class="crm-step">Задача создана<span>Автоматически</span></div>
+<div class="crm-arrow">→</div>
+<div class="crm-step">Очередь задач<span>Берёте в работу</span></div>
+<div class="crm-arrow">→</div>
+<div class="crm-step">Ответ клиенту<span>Из AmoCRM</span></div>
+</div>
+</div>
+</div>
+<!-- Время ответа -->
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">⏰</span>Время ответа</div>
+<div class="rule-body">
+<div class="checklist">
+<div class="ci"><div class="ci-icon ok">✓</div><span>Отвечаем в рабочее время в течение 15–30 минут</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span>Если ответ требует времени — пишем «Уточню и напишу вам в течение часа»</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не оставляем сообщения без ответа до конца дня без предупреждения</span></div>
+</div>
+</div>
+</div>
+<!-- Голосовые -->
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">📎</span>Голосовые сообщения</div>
+<div class="rule-body">
+<div class="checklist">
+<div class="ci"><div class="ci-icon no">✗</div><span>Не отправляем голосовые клиентам — деловая переписка ведётся текстом</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span>Если клиент прислал голосовое — прослушиваем и отвечаем текстом</span></div>
+</div>
+</div>
+</div>
+<!-- Эмодзи -->
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">😊</span>Эмодзи</div>
+<div class="rule-body">
+<div class="checklist">
+<div class="ci"><div class="ci-icon ok">✓</div><span>Эмодзи допустимы умеренно — 1–2 в сообщении, если уместны по тону</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не заменяем слова эмодзи и не ставим в каждом предложении</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>При первом контакте — без эмодзи</span></div>
+</div>
+</div>
+</div>
+<!-- Незакрытые диалоги -->
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">🔄</span>Незакрытые диалоги</div>
+<div class="rule-body">
+<div class="checklist">
+<div class="ci"><div class="ci-icon ok">✓</div><span>Если клиент не ответил — через 1–2 дня можно написать одно короткое повторное сообщение</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span>Закрываем диалог фразой: «Если появятся вопросы — пишите, всегда на связи»</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не пишем несколько напоминаний подряд — это раздражает</span></div>
+</div>
+</div>
+<div class="example-box">
+<div class="ex-bad">
+<div class="ex-label bad">❌ Навязчиво</div>
+<div class="bubble-wrap">
+<div class="bubble out">Добрый день, как вы?</div>
+<div class="bubble out">Вы получили мою информацию?</div>
+<div class="bubble out">Хотел уточнить, актуально ли ещё предложение?</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Один раз и по делу</div>
+<div class="bubble-wrap">
+<div class="bubble out">Александр, добрый день. Отправлял вам информацию по бонусной программе — успели посмотреть? Если удобно, могу ответить на вопросы прямо здесь.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Эмпатия -->
+<div class="rule good">
+<div class="rule-title"><span class="rule-icon">🤝</span>Эмпатия в переписке</div>
+<div class="rule-body">
+<p style="margin-bottom:10px">Слова вежливости и участия делают общение теплее. Не бойтесь их использовать — это признак профессионализма.</p>
+<div class="checklist">
+<div class="ci"><div class="ci-icon ok">✓</div><span><b>«Спасибо»</b> — за обращение, за терпение, за уточнение</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span><b>«Пожалуйста»</b> — в ответ на благодарность</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span><b>«К сожалению»</b> — когда не можем помочь или есть ограничения</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span><b>«Понимаю вас»</b> — когда клиент раздражён или столкнулся с проблемой</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span><b>«Разберёмся вместе»</b> — когда ситуация требует времени</span></div>
+</div>
+<div class="example-box" style="margin-top:12px">
+<div class="ex-bad">
+<div class="ex-label bad">❌ Сухо</div>
+<div class="bubble-wrap">
+<div class="bubble in">Почему так долго? Я уже час жду ответа.</div>
+<div class="bubble out">Поддержка отвечает в порядке очереди. Ожидайте.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ С участием</div>
+<div class="bubble-wrap">
+<div class="bubble in">Почему так долго? Я уже час жду ответа.</div>
+<div class="bubble out">Понимаю, ждать неприятно. Сейчас уточню у коллег и напишу вам в течение 15 минут. Спасибо за терпение.</div>
+</div>
+</div>
+<div class="ex-bad">
+<div class="ex-label bad">❌ Отказ в лоб</div>
+<div class="bubble-wrap">
+<div class="bubble in">Можно сделать исключение для нас?</div>
+<div class="bubble out">Нет, такой возможности нет.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Отказ с эмпатией</div>
+<div class="bubble-wrap">
+<div class="bubble in">Можно сделать исключение для нас?</div>
+<div class="bubble out">К сожалению, в этом случае исключение сделать не получится. Но давайте посмотрим, что можем предложить в вашей ситуации.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Чего не делаем -->
+<div class="rule good">
+<div class="rule-title"><span class="rule-icon">🚫</span>Чего не делаем никогда</div>
+<div class="rule-body">
+<div class="checklist">
+<div class="ci"><div class="ci-icon no">✗</div><span>Не пишем в нерабочее время — кроме случаев когда клиент сам написал вечером</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не обсуждаем конкурентов негативно</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не используем CAPS LOCK — воспринимается как крик</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не пишем «Вы должны», «Вам нужно» — пишем «Рекомендуем», «Можно»</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не копируем один и тот же шаблон без персонализации — клиент это чувствует</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="divider"></div>
+<div class="section" id="s7">
+<div class="sec-header">
+<div class="sec-num">7</div>
+<div class="sec-title">Как написать первым — WhatsApp, Telegram, MAX</div>
+</div>
+<div class="hl-box" style="margin-bottom:16px">
+<p><b>Важно перед отправкой первого сообщения:</b> в карточке сделки в AmoCRM должен быть добавлен контакт с номером телефона клиента. Без этого написать первым не получится.</p>
+</div>
+<!-- WHATSAPP -->
+<div class="rules">
+<div class="rule info" style="border-left-color:#25d366">
+<div class="rule-title">
+<span class="rule-icon">💬</span>
+<span>WhatsApp</span>
+</div>
+<div class="rule-body">
+<div class="checklist" style="margin-bottom:10px">
+<div class="ci"><div class="ci-icon ok" style="background:rgba(37,211,102,0.15);color:#25d366">1</div><span>Открываем сделку в AmoCRM → переходим в чат с клиентом</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(37,211,102,0.15);color:#25d366">2</div><span>Нажимаем на <b>номер телефона</b> клиента в карточке</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(37,211,102,0.15);color:#25d366">3</div><span>Выбираем канал <b>Promopult (+796...)</b> — наш WhatsApp. Выглядит вот так:</span></div>
+</div>
+<img alt="Выбор канала в AmoCRM" src="data:image/png;base64,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" style="max-width:320px;width:100%;border-radius:10px;border:1px solid #e8eaf0;display:block;margin-bottom:4px"/>
+<div style="font-size:11px;color:#aaa;margin-bottom:12px">Нажимаем на строку с иконкой WhatsApp — Promopult (+796...)</div>
+<div class="checklist" style="margin-bottom:14px">
+<div class="ci"><div class="ci-icon ok" style="background:rgba(37,211,102,0.15);color:#25d366">4</div><span>Пишем сообщение и отправляем</span></div>
+</div>
+<div style="background:#f0fff4;border-radius:10px;padding:10px 14px;font-size:12px;color:#276749;border-left:3px solid #68d391">
+          Подробная инструкция: <a href="https://docs.radist.online/ru/%D0%BD%D0%B0%D1%88%D0%B8-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/amocrm/waba-amocrm/kak-pisat-pervym-ne-s-shablonnogo-soobsheniya-v-amocrm/" style="color:#276749;font-weight:700" target="_blank">docs.radist.online → WhatsApp → Как писать первым</a>
+</div>
+</div>
+</div>
+</div>
+<!-- MAX -->
+<div class="rules" style="margin-top:12px">
+<div class="rule info" style="border-left-color:#ff6584">
+<div class="rule-title">
+<span class="rule-icon">💬</span>
+<span>MAX</span>
+</div>
+<div class="rule-body">
+<div class="checklist" style="margin-bottom:14px">
+<div class="ci"><div class="ci-icon ok" style="background:rgba(255,101,132,0.15);color:#ff6584">1</div><span>Открываем сделку в AmoCRM → переходим в чат с клиентом</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(255,101,132,0.15);color:#ff6584">2</div><span>Нажимаем на <b>номер телефона</b> клиента в карточке</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(255,101,132,0.15);color:#ff6584">3</div><span>Выбираем канал <b>MAX</b> из появившегося списка</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(255,101,132,0.15);color:#ff6584">4</div><span>Пишем сообщение и отправляем — клиент получит его в MAX по номеру телефона</span></div>
+</div>
+<div style="background:#fff5f8;border-radius:10px;padding:10px 14px;font-size:12px;color:#c53030;border-left:3px solid #ff6584;margin-bottom:10px">
+<b>Дубли не создаём</b> — если клиент уже есть в системе, используем существующий контакт, не создаём новый.
+        </div>
+<div style="background:#f0fff4;border-radius:10px;padding:10px 14px;font-size:12px;color:#276749;border-left:3px solid #68d391">
+          Подробная инструкция: <a href="https://docs.radist.online/ru/%D0%BD%D0%B0%D1%88%D0%B8-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/amocrm/max/" style="color:#276749;font-weight:700" target="_blank">docs.radist.online → MAX → Первым писать клиентам</a>
+</div>
+</div>
+</div>
+</div>
+<!-- TELEGRAM -->
+<div class="rules" style="margin-top:12px">
+<div class="rule info" style="border-left-color:#2ca5e0">
+<div class="rule-title">
+<span class="rule-icon">💬</span>
+<span>Telegram — по номеру телефона</span>
+</div>
+<div class="rule-body">
+<div class="checklist" style="margin-bottom:14px">
+<div class="ci"><div class="ci-icon ok" style="background:rgba(44,165,224,0.15);color:#2ca5e0">1</div><span>Открываем сделку в AmoCRM → переходим в чат с клиентом</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(44,165,224,0.15);color:#2ca5e0">2</div><span>Нажимаем на <b>номер телефона</b> клиента в карточке</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(44,165,224,0.15);color:#2ca5e0">3</div><span>Выбираем канал <b>Telegram</b> из появившегося списка</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(44,165,224,0.15);color:#2ca5e0">4</div><span>Пишем сообщение и отправляем — клиент получит его в Telegram по номеру телефона</span></div>
+</div>
+<div style="background:#f0f8ff;border-radius:10px;padding:10px 14px;font-size:12px;color:#2b6cb0;border-left:3px solid #2ca5e0">
+          Подробная инструкция: <a href="https://docs.radist.online/ru/%D0%BD%D0%B0%D1%88%D0%B8-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/amocrm/telegram/" style="color:#2b6cb0;font-weight:700" target="_blank">docs.radist.online → Telegram</a>
+</div>
+</div>
+</div>
+</div>
+<!-- TELEGRAM по username -->
+<div class="rules" style="margin-top:12px">
+<div class="rule info" style="border-left-color:#2ca5e0">
+<div class="rule-title">
+<span class="rule-icon">💬</span>
+<span>Telegram — по username (@ник клиента)</span>
+</div>
+<div class="rule-body">
+<div class="checklist" style="margin-bottom:14px">
+<div class="ci"><div class="ci-icon ok" style="background:rgba(44,165,224,0.15);color:#2ca5e0">1</div><span>Открываем сделку в AmoCRM</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(44,165,224,0.15);color:#2ca5e0">2</div><span>В карточке контакта вводим username клиента в формате <b>@username</b> в поле Telegram</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(44,165,224,0.15);color:#2ca5e0">3</div><span>Переходим в чат → выбираем Telegram канал</span></div>
+<div class="ci"><div class="ci-icon ok" style="background:rgba(44,165,224,0.15);color:#2ca5e0">4</div><span>Пишем сообщение и отправляем</span></div>
+</div>
+<div style="background:#ebf8ff;border-radius:10px;padding:12px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:center">
+<span style="font-size:22px">🎬</span>
+<div>
+<div style="font-size:12px;font-weight:700;color:#2b6cb0;margin-bottom:3px">Видеоинструкция — написать по username в Telegram</div>
+<a href="https://disk.360.yandex.ru/i/KOsrGeHoPLNfGg" style="font-size:12px;color:#2ca5e0;font-weight:600" target="_blank">Смотреть на Яндекс Диске →</a>
+</div>
+</div>
+<div style="background:#f0f8ff;border-radius:10px;padding:10px 14px;font-size:12px;color:#2b6cb0;border-left:3px solid #2ca5e0">
+          Текстовая инструкция: <a href="https://docs.radist.online/ru/%D0%BD%D0%B0%D1%88%D0%B8-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/amocrm/telegram/kak-pisat-na-username-klienta-telegram-v-amocrm/" style="color:#2b6cb0;font-weight:700" target="_blank">docs.radist.online → Telegram → Как писать на username</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="divider"></div>
+<!-- РАЗДЕЛ 8 — ЛОГИКА КОММУНИКАЦИИ -->
+<div class="section" id="s8">
+<div class="sec-header">
+<div class="sec-num">8</div>
+<div class="sec-title">Логика коммуникации — зачем мессенджеры и почта</div>
+</div>
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">📌</span>Главный принцип</div>
+<div class="rule-body">
+<p style="margin-bottom:10px">Мессенджеры и почта — дополнительные каналы. Они помогают вернуть клиента в диалог, напомнить о проекте, отправить материалы и поддержать контакт без давления.</p>
+<div class="hl-box" style="margin-top:0">
+<p><b>Основной инструмент менеджера — звонок.</b> Именно в разговоре можно выявить потребность, снять возражения и довести клиента до следующего шага. Мессенджер и почта усиливают звонок, но не заменяют его.</p>
+</div>
+<div class="checklist" style="margin-top:12px">
+<div class="ci"><div class="ci-icon ok">✓</div><span>Пишем коротко, спокойно и по делу</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span>Один основной канал + при необходимости один дополнительный — этого достаточно</span></div>
+<div class="ci"><div class="ci-icon ok">✓</div><span>Почту используем как полноценный рабочий канал — для материалов, инструкций, подробной информации</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не создаём ощущение преследования</span></div>
+<div class="ci"><div class="ci-icon no">✗</div><span>Не пишем сразу во все мессенджеры подряд</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- РАЗДЕЛ 9 — СЦЕНАРИИ -->
+<div class="section" id="s9">
+<div class="sec-header">
+<div class="sec-num">9</div>
+<div class="sec-title">Сценарии касаний — что нормально, а что давление</div>
+</div>
+<div class="example-box">
+<div class="ex-good">
+<div class="ex-label good">✅ Хорошие сценарии</div>
+<div style="font-size:12px;color:#e8eaf6;line-height:1.9;font-weight:400">
+        Звонок → WhatsApp → письмо<br/>
+        Звонок → письмо<br/>
+        Попытка дозвона → WhatsApp → письмо<br/>
+        Попытка дозвона → письмо<br/>
+        Звонок → Telegram (если клиенту ближе)<br/>
+        Клиент ответил на письмо → продолжаем в почте
+      </div>
+</div>
+<div class="ex-bad">
+<div class="ex-label bad">❌ Плохой сценарий — давление</div>
+<div style="font-size:12px;color:#e8eaf6;line-height:1.9;font-weight:400">
+        Звонок → WhatsApp → Telegram → MAX → ещё одно сообщение → снова звонок
+        <div style="font-size:11px;color:#888;margin-top:8px;font-weight:400">Клиент видит, что его пытаются достать сразу везде. Даже с хорошим намерением это воспринимается как давление — клиент начинает игнорировать, блокирует или формирует негатив к сервису</div>
+</div>
+</div>
+</div>
+<div class="rule info" style="margin-top:12px">
+<div class="rule-title"><span class="rule-icon">💡</span>Рекомендуемая связка: WhatsApp + почта</div>
+<div class="rule-body">
+<p style="margin-bottom:10px">Один из самых комфортных и профессиональных сценариев. WhatsApp — короткое живое касание. Почта — материалы, инструкции, презентации, информация по бонусной программе.</p>
+<p style="margin-bottom:12px">В WhatsApp не нужно дублировать всё письмо. Достаточно коротко предупредить, что информация отправлена на почту.</p>
+<div class="example-box">
+<div class="ex-good">
+<div class="ex-label good">✅ После отправки письма</div>
+<div class="bubble-wrap">
+<div class="bubble out">Алексей, добрый день. Направила вам информацию по бонусной программе на почту. Если появятся вопросы — буду рада помочь.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Сообщение + письмо</div>
+<div class="bubble-wrap">
+<div class="bubble out">Алексей, добрый день. Направила вам информацию по проекту на почту. Если будет удобно — посмотрите, пожалуйста. Буду рада помочь.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- РАЗДЕЛ 10 — ШАБЛОНЫ ПО ВОРОНКАМ -->
+<div class="section" id="s10">
+<div class="sec-header">
+<div class="sec-num">10</div>
+<div class="sec-title">Шаблоны сообщений по воронкам</div>
+</div>
+<div class="rules">
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">🆕</span>Рег.1 — новые регистрации</div>
+<div class="rule-body">
+<p style="margin-bottom:12px">Пишем после 1–2 попыток дозвона. Смотрим в аккаунт что делал клиент — и пишем конкретно под его действие. Пол менеджера подставляем свой.</p>
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Зарегистрировался, ничего не делал</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good">
+<div class="ex-label good">👨 Пишет менеджер-мужчина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидел, что вы недавно зарегистрировались, но ещё не успели посмотреть платформу. Если появятся вопросы или понадобится помощь — буду рад помочь.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">👩 Пишет менеджер-женщина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидела, что вы недавно зарегистрировались, но ещё не успели посмотреть платформу. Если появятся вопросы или понадобится помощь — буду рада помочь.</div>
+</div>
+</div>
+</div>
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Интересовался SEO-продвижением</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good">
+<div class="ex-label good">👨 Пишет менеджер-мужчина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидел, что вы недавно зарегистрировались и интересовались SEO-продвижением. Подскажите, под какой сайт смотрите? Если появятся вопросы — буду рад помочь разобраться.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">👩 Пишет менеджер-женщина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидела, что вы недавно зарегистрировались и интересовались SEO-продвижением. Подскажите, под какой сайт смотрите? Если появятся вопросы — буду рада помочь разобраться.</div>
+</div>
+</div>
+</div>
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Создал проект по Яндекс Директ</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good">
+<div class="ex-label good">👨 Пишет менеджер-мужчина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидел, что вы недавно зарегистрировались и создали проект по Яндекс Директ. Если есть вопросы по запуску или настройке — буду рад помочь.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">👩 Пишет менеджер-женщина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидела, что вы недавно зарегистрировались и создали проект по Яндекс Директ. Если есть вопросы по запуску или настройке — буду рада помочь.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="rules" style="margin-top:12px">
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">🔧</span>Рег.1 — использовал профессиональные инструменты</div>
+<div class="rule-body">
+<p style="margin-bottom:14px">Клиент с опытом — воспользовался инструментами платформы. Задача менеджера: зацепиться за конкретный инструмент и предложить запуск рекламы или продвижения через нас. Бонусная программа здесь уместна как крючок — эта аудитория понимает ценность экономии.</p>
+
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Слова и объявления конкурентов</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good"><div class="ex-label good">👨 Мужчина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидел, что вы анализировали рекламу конкурентов — значит контекст в планах. У нас есть бонусная программа на Яндекс Директ и VK Рекламу. Вы запускаете рекламу напрямую или через сервис?</div></div></div>
+<div class="ex-good"><div class="ex-label good">👩 Женщина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидела, что вы анализировали рекламу конкурентов — значит контекст в планах. У нас есть бонусная программа на Яндекс Директ и VK Рекламу. Вы запускаете рекламу напрямую или через сервис?</div></div></div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Парсер Wordstat / Кластеризация / Поисковые подсказки / Нормализатор</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good"><div class="ex-label good">👨 Мужчина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидел, что вы работали с семантикой. Под SEO или контекст собираете ядро? Буду рад рассказать что у нас есть под вашу задачу.</div></div></div>
+<div class="ex-good"><div class="ex-label good">👩 Женщина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидела, что вы работали с семантикой. Под SEO или контекст собираете ядро? Буду рада рассказать что у нас есть под вашу задачу.</div></div></div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Парсер сообществ ВК / Парсер пользователей ВК</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good"><div class="ex-label good">👨 Мужчина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидел, что вы парсили аудиторию ВКонтакте — значит таргет в планах. У нас есть бонусная программа на VK Рекламу. Вы запускаете рекламу напрямую или через сервис?</div></div></div>
+<div class="ex-good"><div class="ex-label good">👩 Женщина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидела, что вы парсили аудиторию ВКонтакте — значит таргет в планах. У нас есть бонусная программа на VK Рекламу. Вы запускаете рекламу напрямую или через сервис?</div></div></div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Написание контекстных объявлений / Генератор из YML</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good"><div class="ex-label good">👨 Мужчина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидел, что вы готовили объявления для Директа. У нас есть бонусная программа — вы запускаете рекламу напрямую или через сервис?</div></div></div>
+<div class="ex-good"><div class="ex-label good">👩 Женщина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидела, что вы готовили объявления для Директа. У нас есть бонусная программа — вы запускаете рекламу напрямую или через сервис?</div></div></div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Съём позиций / Анализ индексации / Парсер ИКС</div>
+<div class="example-box" style="margin-bottom:0">
+<div class="ex-good"><div class="ex-label good">👨 Мужчина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидел, что вы мониторите позиции сайта. Занимаетесь SEO самостоятельно или ведёте клиентов? Буду рад рассказать что есть на платформе под эту задачу.</div></div></div>
+<div class="ex-good"><div class="ex-label good">👩 Женщина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидела, что вы мониторите позиции сайта. Занимаетесь SEO самостоятельно или ведёте клиентов? Буду рада рассказать что есть на платформе под эту задачу.</div></div></div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="rules" style="margin-top:12px">
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">🚀</span>Рег.1 — начал создавать проект</div>
+<div class="rule-body">
+<p style="margin-bottom:14px">Клиент начал создавать проект — уже сделал первый шаг. Задача: помочь дойти до запуска. Для прямых аккаунтов Директа — уместно упомянуть бонусную сразу, это усиливает мотивацию пополнить баланс.</p>
+
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Начал создавать проект по SEO</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good"><div class="ex-label good">👨 Мужчина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидел, что вы начали создавать проект по SEO-продвижению. Если появятся вопросы по запуску или настройке — буду рад помочь.</div></div></div>
+<div class="ex-good"><div class="ex-label good">👩 Женщина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидела, что вы начали создавать проект по SEO-продвижению. Если появятся вопросы по запуску или настройке — буду рада помочь.</div></div></div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Начал создавать проект по Яндекс Директ через наш интерфейс</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good"><div class="ex-label good">👨 Мужчина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидел, что вы начали создавать проект по Яндекс Директ. Если нужна помощь с настройкой — наш специалист может настроить рекламу бесплатно. Буду рад рассказать подробнее.</div></div></div>
+<div class="ex-good"><div class="ex-label good">👩 Женщина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидела, что вы начали создавать проект по Яндекс Директ. Если нужна помощь с настройкой — наш специалист может настроить рекламу бесплатно. Буду рада рассказать подробнее.</div></div></div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Создал прямой аккаунт Яндекс Директ</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good"><div class="ex-label good">👨 Мужчина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидел, что вы создали прямой аккаунт Яндекс Директ. У нас есть бонусная программа — за рекламный бюджет через нас начисляются бонусы до 8%. Хотите узнать подробнее?</div></div></div>
+<div class="ex-good"><div class="ex-label good">👩 Женщина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидела, что вы создали прямой аккаунт Яндекс Директ. У нас есть бонусная программа — за рекламный бюджет через нас начисляются бонусы до 8%. Хотите узнать подробнее?</div></div></div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Начал создавать проект по рекламе VK / создал прямой аккаунт VK</div>
+<div class="example-box" style="margin-bottom:0">
+<div class="ex-good"><div class="ex-label good">👨 Мужчина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидел, что вы подключили рекламу VK. У нас есть бонусная программа — за рекламный бюджет через нас начисляются бонусы до 19%. Хотите узнать подробнее?</div></div></div>
+<div class="ex-good"><div class="ex-label good">👩 Женщина</div><div class="bubble-wrap"><div class="bubble out">Михаил, добрый день. Меня зовут [имя], я менеджер PromoPult. Увидела, что вы подключили рекламу VK. У нас есть бонусная программа — за рекламный бюджет через нас начисляются бонусы до 19%. Хотите узнать подробнее?</div></div></div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="rules" style="margin-top:12px">
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">↩️</span>Отвалы</div>
+<div class="rule-body">
+<p style="margin-bottom:12px">Сначала 2–3 попытки дозвона в разное время. Если клиент не отвечает — отправляем сообщение. Можно добавить письмо с информацией по восстановлению проекта, бонусной программе или инструкциями.</p>
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Первое сообщение</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good">
+<div class="ex-label good">👨 Пишет менеджер-мужчина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Марат, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидел, что рекламные проекты сейчас приостановлены. Подскажите, планируете ли возобновить рекламу? Если появятся вопросы — буду рад помочь.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">👩 Пишет менеджер-женщина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Марат, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидела, что рекламные проекты сейчас приостановлены. Подскажите, планируете ли возобновить рекламу? Если появятся вопросы — буду рада помочь.</div>
+</div>
+</div>
+</div>
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Повторное — через 5–7 дней</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good">
+<div class="ex-label good">👨 Пишет менеджер-мужчина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Марат, добрый день. Хотел уточнить — не планируете возвращаться к рекламе в ближайшее время? Если понадобится помощь с запуском — я на связи.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">👩 Пишет менеджер-женщина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Марат, добрый день. Хотела уточнить — не планируете возвращаться к рекламе в ближайшее время? Если понадобится помощь с запуском — я на связи.</div>
+</div>
+</div>
+</div>
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Если одновременно отправляете письмо</div>
+<div class="example-box">
+<div class="ex-good">
+<div class="ex-label good">👨 Пишет менеджер-мужчина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Марат, добрый день. Направил вам на почту информацию по возможностям возобновления рекламы. Если будет удобно — посмотрите, пожалуйста. Если появятся вопросы — помогу сориентироваться.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">👩 Пишет менеджер-женщина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Марат, добрый день. Направила вам на почту информацию по возможностям возобновления рекламы. Если будет удобно — посмотрите, пожалуйста. Если появятся вопросы — помогу сориентироваться.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="rules" style="margin-top:12px">
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">⏳</span>Зак.1 — баланс подходит к завершению</div>
+<div class="rule-body">
+<p style="margin-bottom:12px">Звонок в приоритете — клиент горячий. Сообщение и письмо используем как сопровождение после звонка или когда клиент не берёт трубку.</p>
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Сообщение</div>
+<div class="example-box" style="margin-bottom:14px">
+<div class="ex-good">
+<div class="ex-label good">👨 Пишет менеджер-мужчина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Алексей, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидел, что баланс подходит к завершению. Подскажите, планируете продолжать рекламу? Если нужна помощь — буду рад подсказать.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">👩 Пишет менеджер-женщина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Алексей, добрый день. Меня зовут [имя], я менеджер платформы Промопульт. Увидела, что баланс подходит к завершению. Подскажите, планируете продолжать рекламу? Если нужна помощь — буду рада подсказать.</div>
+</div>
+</div>
+</div>
+<div style="font-size:11px;font-weight:700;color:#7b82a8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Если дополнительно отправляете письмо</div>
+<div class="example-box">
+<div class="ex-good">
+<div class="ex-label good">👨 Пишет менеджер-мужчина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Алексей, добрый день. Направил вам на почту информацию по проекту. По вопросам продления или работы рекламы — я на связи.</div>
+</div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">👩 Пишет менеджер-женщина</div>
+<div class="bubble-wrap">
+<div class="bubble out">Алексей, добрый день. Направила вам на почту информацию по проекту. По вопросам продления или работы рекламы — я на связи.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="rules" style="margin-top:12px">
+<div class="rule info">
+<div class="rule-title"><span class="rule-icon">🛒</span>Wildberries</div>
+<div class="rule-body">
+<p style="margin-bottom:10px">Пишем коротко и конкретно.</p>
+<div class="bubble-wrap">
+<div class="bubble out">Феруза, добрый день. Это [имя] из команды Promopult. Подскажите, отправить вам инструкции по настройке Биддера и Мониторинга позиций для Wildberries? Оба инструмента бесплатны.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- РАЗДЕЛ 11 — ПРИОРИТЕТЫ КАНАЛОВ -->
+<div class="section" id="s11">
+<div class="sec-header">
+<div class="sec-num">11</div>
+<div class="sec-title">Приоритеты каналов</div>
+</div>
+<div class="card" style="background:white;border-radius:14px;padding:18px 22px;box-shadow:0 2px 10px rgba(0,0,0,0.05)">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;gap:12px;align-items:center;padding:10px 14px;background:#f7f8fc;border-radius:10px;border-left:3px solid #EF9F27">
+<div style="width:28px;height:28px;background:#EF9F27;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#1a1a2e;flex-shrink:0">1</div>
+<div><div style="font-size:13px;font-weight:700;color:#1a1a2e">Звонок</div><div style="font-size:11px;color:#888">Основной инструмент менеджера</div></div>
+</div>
+<div style="display:flex;gap:12px;align-items:center;padding:10px 14px;background:#f7f8fc;border-radius:10px;border-left:3px solid #25d366">
+<div style="width:28px;height:28px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:white;flex-shrink:0">2</div>
+<div><div style="font-size:13px;font-weight:700;color:#1a1a2e">WhatsApp</div><div style="font-size:11px;color:#888">Основной мессенджер для быстрого касания</div></div>
+</div>
+<div style="display:flex;gap:12px;align-items:center;padding:10px 14px;background:#f7f8fc;border-radius:10px;border-left:3px solid #378ADD">
+<div style="width:28px;height:28px;background:#378ADD;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:white;flex-shrink:0">3</div>
+<div><div style="font-size:13px;font-weight:700;color:#1a1a2e">Почта</div><div style="font-size:11px;color:#888">Материалы, инструкции, подробная информация</div></div>
+</div>
+<div style="display:flex;gap:12px;align-items:center;padding:10px 14px;background:#f7f8fc;border-radius:10px;border-left:3px solid #2ca5e0">
+<div style="width:28px;height:28px;background:#2ca5e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:white;flex-shrink:0">4</div>
+<div><div style="font-size:13px;font-weight:700;color:#1a1a2e">Telegram</div><div style="font-size:11px;color:#888">Дополнительный канал — SEO-специалисты, маркетологи, агентства, технические клиенты</div></div>
+</div>
+<div style="display:flex;gap:12px;align-items:center;padding:10px 14px;background:#f7f8fc;border-radius:10px;border-left:3px solid #fc8181">
+<div style="width:28px;height:28px;background:#fc8181;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:white;flex-shrink:0">5</div>
+<div><div style="font-size:13px;font-weight:700;color:#1a1a2e">MAX</div><div style="font-size:11px;color:#888">Точечно и осторожно — не делать основным каналом, не использовать массово</div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- РАЗДЕЛ 12 — ЧЕГО НЕ ПИСАТЬ -->
+<div class="section" id="s12">
+<div class="sec-header">
+<div class="sec-num">12</div>
+<div class="sec-title">Чего не писать никогда</div>
+</div>
+<div class="rule" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;border-left:3px solid #fc8181">
+<div class="rule-body">
+<p style="margin-bottom:12px;font-size:13px;color:#b0b8d4">Такие формулировки звучат как претензия. Пишем от ситуации клиента — проект приостановлен, баланс заканчивается, была регистрация — а не от нашего раздражения.</p>
+<div class="example-box">
+<div class="ex-bad">
+<div class="ex-label bad">❌ Нельзя</div>
+<div style="font-size:12px;color:#e8eaf6;line-height:1.9">
+            «Почему не пополняете баланс?»<br/>
+            «Когда оплатите?»<br/>
+            «Срочно продлите рекламу»<br/>
+            «Мы вам уже несколько раз звонили»
+          </div>
+</div>
+<div class="ex-good">
+<div class="ex-label good">✅ Вместо этого</div>
+<div style="font-size:12px;color:#e8eaf6;line-height:1.9">
+            «Увидел(а), что баланс подходит к завершению»<br/>
+            «Проекты сейчас приостановлены»<br/>
+            «Подскажите, планируете продолжать?»<br/>
+            «Если появятся вопросы — я на связи»
+          </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

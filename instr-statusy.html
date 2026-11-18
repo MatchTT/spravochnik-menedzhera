@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Статусы сделок — Справочник менеджера</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<svg style="display:none" aria-hidden="true">
+<symbol id="i-head" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 15a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2z"/><path d="M3 15a2 2 0 0 0 2 2h1v-5H5a2 2 0 0 0-2 2z"/><path d="M18 17v1a3 3 0 0 1-3 3h-3"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></symbol>
+<symbol id="i-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+</svg>
+<div class="wrap">
+
+<a class="back" href="razdel-zvonki.html">← Звонки</a>
+<div class="head"><h1>Статусы сделок</h1></div>
+<table>
+<tr><th>Ситуация</th><th>Статус</th></tr>
+<tr><td>Пополнил баланс</td><td><b>Успех</b> — ставится автоматически, вручную не ставим</td></tr>
+<tr><td>Есть интерес, баланс не пополнен</td><td>Остаётся в <b>Рег2</b>, дожимаем</td></tr>
+<tr><td>Нецелевой, но диалог был и помогли</td><td><b>Принимают решение</b></td></tr>
+<tr><td>Объективный отказ или недозвон</td><td><b>Fail</b></td></tr>
+</table>
+<div class="box"><b>«Принимают решение»</b> — диалог состоялся, задача услышана, рассказали о платформе или направили презентацию, дальнейшие звонки не планируются. Подходит, если клиент:<ul><li>изучает, а не покупает: студент, сотрудник конкурента</li><li>решал разовую техническую задачу</li><li>зарегистрировался ради реферальной программы</li><li>запустил только бесплатный инструмент (биддер, мониторинг позиций)</li><li>«динамо»: минимум 3 звонка, всё обещает и ничего не делает, или попросил больше не звонить</li></ul></div>
+<div class="box warn">Нельзя ставить «Принимают решение» «на всякий случай», если не дошли до финала и не знаете, что думает клиент. Это незавершённый звонок. «Подумаю» без даты = отказ, который мы не зафиксировали.</div>
+<div class="box"><b>Fail — нормально:</b> технический недозвон (несколько попыток, номер недоступен, автоответчик), обрыв в начале разговора, объективный отказ (нет бизнеса, сайта, бюджета; бизнес закрывается).<br><b>Fail — плохо:</b> нецелевому не рассказали о платформе и просто слили; клиент сказал «просто посмотреть», а менеджер не докопался до задачи. Сначала попытка — рассказал о платформе, направил презентацию — и только потом Fail.</div>
+<div class="box"><b>Воронка «Сделать первый звонок после воронки 0».</b> Клиент попадает сюда через сутки после статуса «Объяснено, ждём запуск». Не знакомим заново — уточняем, что остановило: «[Имя], мы разговаривали в [день]. Скажите — что остановило от запуска? Давайте разберём прямо сейчас и сделаем первый шаг». Единственный целевой результат — пополнение баланса.</div>
+
+<div class="foot">Справочник менеджера PromoPult · Рег1</div>
+</div>
+<script src="assets/app.js"></script>
+
+</body>
+</html>

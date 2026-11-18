@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Методичка: обзвон базы Яндекс Директ 2025 — PromoPult</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f7f8fa;
+    color: #1a1a2e;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+  }
+
+  /* Шапка */
+  .header {
+    background: #fff;
+    border-bottom: 3px solid #e85d00;
+    padding: 32px 48px 28px;
+    margin-bottom: 32px;
+  }
+  .header-badge {
+    display: inline-block;
+    background: #fff5eb;
+    color: #e85d00;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: #1a1a2e;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: #7b82a8;
+  }
+
+  /* Навигация */
+  .toc {
+    background: #fff;
+    border: 1px solid #e0e2e8;
+    border-radius: 12px;
+    padding: 20px 28px;
+    margin: 0 48px 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+  .toc a {
+    font-size: 12px;
+    color: #7b82a8;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .toc a:hover { color: #e85d00; }
+
+  /* Секции */
+  .section {
+    background: #fff;
+    border: 1px solid #e0e2e8;
+    border-radius: 12px;
+    margin: 0 48px 20px;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 18px 28px 16px;
+    border-bottom: 1px solid #f0f1f5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-num {
+    width: 30px;
+    height: 30px;
+    background: #fff5eb;
+    color: #e85d00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+  .section-body {
+    padding: 20px 28px;
+  }
+
+  /* Предупреждение */
+  .alert {
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+  }
+  .alert-icon { flex-shrink: 0; font-size: 16px; }
+  .alert-orange { background: #fff5eb; border-left: 4px solid #e85d00; }
+  .alert-blue   { background: #eff6ff; border-left: 4px solid #2563eb; }
+  .alert-red    { background: #fef2f2; border-left: 4px solid #dc2626; }
+  .alert-green  { background: #f0fdf4; border-left: 4px solid #16a34a; }
+
+  /* Список */
+  .list { padding-left: 0; list-style: none; }
+  .list li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 13px;
+    border-bottom: 1px solid #f7f8fa;
+  }
+  .list li:last-child { border-bottom: none; }
+  .list li::before {
+    content: '·';
+    position: absolute;
+    left: 6px;
+    color: #e85d00;
+    font-weight: 700;
+  }
+  .list b { color: #1a1a2e; }
+
+  /* Шаги */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #f0f1f5;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 18px;
+  }
+  .step-num-inner {
+    width: 28px;
+    height: 28px;
+    background: #fff5eb;
+    color: #e85d00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+  }
+  .step-content { padding: 16px 0 16px 8px; flex: 1; }
+  .step-title { font-weight: 600; font-size: 13px; color: #1a1a2e; margin-bottom: 4px; }
+  .step-desc { font-size: 12px; color: #7b82a8; line-height: 1.6; }
+
+  /* Ветки */
+  .branch {
+    border: 1px solid #e0e2e8;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .branch-header {
+    padding: 11px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .branch-body {
+    padding: 14px 16px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .branch-green .branch-header { background: #f0fdf4; color: #16a34a; }
+  .branch-blue  .branch-header { background: #eff6ff; color: #2563eb; }
+  .branch-gray  .branch-header { background: #f7f8fa; color: #7b82a8; }
+
+  /* Цитата */
+  .quote {
+    background: #f8f9fc;
+    border-left: 3px solid #e85d00;
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.65;
+    margin: 8px 0 4px;
+    font-style: italic;
+  }
+  .quote-note {
+    font-size: 11px;
+    color: #7b82a8;
+    margin-top: 6px;
+    font-style: normal;
+  }
+
+  /* Таблица бонусов */
+  .bonus-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .bonus-table th {
+    padding: 9px 14px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9999aa;
+    background: #f8f9fc;
+    border-bottom: 2px solid #e0e2e8;
+  }
+  .bonus-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f0f1f5;
+  }
+  .bonus-table tr:last-child td { border-bottom: none; }
+  .bonus-pct {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    color: #16a34a;
+  }
+
+  /* Таблица правил */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .rules-col { padding: 0; }
+  .rules-col:first-child { border-right: 1px solid #f0f1f5; padding-right: 20px; }
+  .rules-col:last-child { padding-left: 20px; }
+  .rules-title {
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f1f5;
+  }
+  .rules-title.green { color: #16a34a; }
+  .rules-title.red   { color: #dc2626; }
+  .rule-item {
+    display: flex;
+    gap: 8px;
+    padding: 5px 0;
+    font-size: 12px;
+    line-height: 1.55;
+    border-bottom: 1px solid #f7f8fa;
+    color: #444;
+  }
+  .rule-item:last-child { border-bottom: none; }
+  .rule-icon { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+
+  /* Шпаргалка */
+  .cheatsheet {
+    background: #fff9f5;
+    border: 2px solid #ffd0aa;
+    border-radius: 12px;
+    margin: 0 48px 20px;
+    overflow: hidden;
+  }
+  .cheatsheet-header {
+    padding: 16px 28px;
+    border-bottom: 1px solid #ffd0aa;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cheatsheet-header-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #e85d00;
+  }
+  .cheatsheet-body {
+    padding: 20px 28px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .cheat-group-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #7b82a8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .cheat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f1f5;
+    font-size: 12px;
+  }
+  .cheat-item:last-child { border-bottom: none; }
+  .cheat-channel { color: #444; }
+  .cheat-val {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    color: #16a34a;
+  }
+
+  p { margin-bottom: 10px; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: #1a1a2e; }
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid #e4e4e7;padding:10px 20px;font:500 13px Inter,system-ui,sans-serif"><a href="razdel-zvonki.html" style="color:#71717a;text-decoration:none">← Звонки</a></div>
+<div class="page">
+
+  <!-- Шапка -->
+  <div class="header">
+    <div class="header-badge">PromoPult</div>
+    <div class="header-title">Методичка: обзвон базы клиентов Яндекс Директ 2025</div>
+    <div class="header-sub">Клиенты, которые запускали Яндекс Директ через платформу в 2025 году и перестали в 2026-м</div>
+  </div>
+
+  <!-- Навигация -->
+  <nav class="toc">
+    <a href="#context">1. Контекст</a>
+    <a href="#prep">2. Подготовка</a>
+    <a href="#structure">3. Структура звонка</a>
+    <a href="#branches">4. Три ветки</a>
+    <a href="#tools">5. Другие инструменты</a>
+    <a href="#bonus">6. Бонусная программа</a>
+    <a href="#fixation">7. Что фиксируем</a>
+  </nav>
+
+  <!-- 1. Контекст -->
+  <div class="section" id="context">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">Контекст и цель обзвона</div>
+    </div>
+    <div class="section-body">
+      <p style="font-size:13px;color:#444;">В 2025 году прямых аккаунтов на платформе ещё не было. Клиенты из этой базы работали с Яндекс Директом через наш стандартный интерфейс. В 2026 году они перестали — причины могут быть самыми разными.</p><p style="font-size:13px;color:#444;margin-top:8px;">С тех пор добавлен новый функционал: появились прямые аккаунты Яндекс Директа, ВКонтакте рекламы и Авито с бонусной программой, новые инструменты. Многие клиенты могли уйти просто потому что не знали об этих возможностях — это хорошая точка для возобновления разговора.</p>
+      <div class="alert alert-orange">
+        <span class="alert-icon">⚠</span>
+        <div>
+          <strong>Цель звонка — не переводить клиентов на прямые аккаунты специально.</strong> Для компании это менее выгодно. Цель — выяснить текущую ситуацию клиента и предложить то, что ему реально нужно.<br>
+          Если клиент сам говорит о нехватке функционала, прямых доступах — тогда рассказываем про прямые аккаунты подробно.
+        </div>
+      </div>
+      <div class="alert alert-blue">
+        <span class="alert-icon">💡</span>
+        <div>Эта база — хорошая возможность отработать разговор про бонусную программу, Яндекс Директ и прямые аккаунты в реальных звонках. Особо фиксируем реакции клиентов на предложение бонусной программы — это один из главных фокусов обзвона.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Подготовка -->
+  <div class="section" id="prep">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">Подготовка перед каждым звонком</div>
+    </div>
+    <div class="section-body">
+      <p style="font-size:13px;color:#444;margin-bottom:12px;"><strong>Открываем аккаунт клиента и смотрим:</strong></p>
+      <ul class="list">
+        <li><b>Что запускалось в 2025 году</b> — Яндекс Директ и ВКонтакте реклама через наш интерфейс, SEO, другое</li>
+        <li><b>Когда последний раз был активен проект</b> и что именно</li>
+        
+        <li><b>Текущий баланс и статус всех проектов</b></li>
+      </ul>
+      <div class="alert alert-blue" style="margin-top:14px;margin-bottom:0">
+        <span class="alert-icon">💡</span>
+        <div>Выборка сформирована только по Яндекс Директу — но если в аккаунте были другие проекты, смотрим на них тоже. Стараемся выяснить текущую потребность клиента и рассказать о том, что ему может быть актуально. Клиент мог просто не знать о возможностях платформы — с 2025 года у нас появилось много нового.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Структура звонка -->
+  <div class="section" id="structure">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">Структура звонка</div>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num"><div class="step-num-inner">1</div></div>
+          <div class="step-content">
+            <div class="step-title">Приветствие с конкретикой</div>
+            <div class="step-desc">Называем своё имя. Открываем аккаунт заранее — звоним с конкретикой из него.<br>
+            <em>«Здравствуйте, [имя]. Меня зовут [имя]. В 2025 году вы запускали через нас Яндекс Директ — хотел(а) уточнить как у вас сейчас с рекламой, удобно пару минут?»</em></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num"><div class="step-num-inner">2</div></div>
+          <div class="step-content">
+            <div class="step-title">Выяснить текущую ситуацию</div>
+            <div class="step-desc">Открытый вопрос — не давим, слушаем.<br>
+            <em>«Расскажите, сейчас рекламу запускаете или пока на паузе?»</em></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num"><div class="step-num-inner">3</div></div>
+          <div class="step-content">
+            <div class="step-title">Диагностика</div>
+            <div class="step-desc">Ответ клиента определяет что предлагаем дальше (см. раздел 4).<br>
+            <em>«В каких каналах сейчас работаете — Яндекс Директ, ВКонтакте реклама, Авито, другое? Напрямую или через агентство/сервис?»</em></div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num"><div class="step-num-inner">4</div></div>
+          <div class="step-content">
+            <div class="step-title">Предложение по ситуации</div>
+            <div class="step-desc">Слушаем клиента и предлагаем исходя из его задачи. Три основных сценария описаны в разделе 4. Дополнительно смотрим в аккаунт — если были другие проекты (SEO, ВКонтакте реклама и т.д.), можем предложить их тоже. Главное — предлагаем то что актуально под ситуацию, а не всё подряд.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num"><div class="step-num-inner">5</div></div>
+          <div class="step-content">
+            <div class="step-title">Работа с возражениями</div>
+            <div class="step-desc">Не спорим, не давим — слушаем и уточняем.<br><br>
+            <b>«Уже работаю с другим сервисом / агентством»</b> → «Понял(а). А что привлекло там — чего не хватало у нас?» Слушаем, фиксируем. Если уместно — мягко рассказываем про новый функционал.<br><br>
+            <b>«Надо подумать / не до этого сейчас»</b> → «Конечно, не тороплю. Когда примерно будет актуально — наберу вас тогда?»<br><br>
+            <b>«Дорого / нет бюджета»</b> → «Понял(а). У нас можно начинать с небольших бюджетов — можем подобрать под вашу ситуацию. Или договоримся вернуться когда будет актуально.»<br><br>
+            <b>«Нет времени разбираться»</b> → «Именно для этого у нас есть бесплатная настройка от специалиста — берём на себя, вам только согласовать.»</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num"><div class="step-num-inner">6</div></div>
+          <div class="step-content">
+            <div class="step-title">Финал — конкретный следующий шаг</div>
+            <div class="step-desc">По итогам разговора определяем что дальше — зависит от контекста диалога. Важно не терять клиента, но и не быть навязчивым.<br><br>
+            Клиент готов → оставляем заявку прямо в звонке или договариваемся на конкретную дату.<br>
+            Клиент думает → <em>«Тогда наберу вас в [день] — не потеряемся.»</em><br>
+            Клиент отказался → <em>«Понял(а). Если что-то изменится — мы здесь.»</em> + фиксируем причину.<br><br>
+            «Если что — пишите» — не финал.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Три ветки -->
+  <div class="section" id="branches">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">Три ветки разговора</div>
+    </div>
+    <div class="section-body">
+
+      <div class="branch branch-green">
+        <div class="branch-header">→ Клиент сейчас запускает рекламу напрямую</div>
+        <div class="branch-body">
+          <p style="font-size:13px;">Предлагаем бонусную программу через прямой аккаунт:</p>
+          <div class="quote">«У нас с 2026 года появились прямые аккаунты — вы работаете в привычном интерфейсе, а пополняете через нас. За это начисляются бонусы: по Яндекс Директу до 8%, по ВКонтакте рекламе до 19%, по Промостраницам и Яндекс Бизнесу до 13%, по Авито до 5%. На первый месяц есть промокод, который даёт максимальную ставку сразу вне зависимости от оборота. Бонусы можно обменять на рубли. Рассказать подробнее?»</div>
+        </div>
+      </div>
+
+      <div class="branch branch-blue">
+        <div class="branch-header">→ Клиент на паузе, планирует вернуться</div>
+        <div class="branch-body">
+          <p style="font-size:13px;">Уточняем сроки и договариваемся на перезвонок:</p>
+          <div class="quote">«Когда планируете возобновить? Тогда наберу вас ближе к этому времени — поможем запустить.»</div>
+          
+        </div>
+      </div>
+
+      <div class="branch branch-gray">
+        <div class="branch-header">→ Клиент ушёл в агентство или другой сервис</div>
+        <div class="branch-body">
+          <p style="font-size:13px;">Слушаем, не спорим, фиксируем причину — это важнее продажи:</p>
+          <div class="quote">«Понял(а). А что не хватало у нас или что привлекло там?»</div><div class="quote-note">После ответа клиента — если уместно — можно мягко сказать: «Кстати, с тех пор у нас добавлен новый функционал. Например, теперь есть бонусная программа — бонусы начисляются от рекламных расходов и их можно обменять на рубли. Раньше такого не было.»</div>
+          <p style="font-size:12px;color:#555;margin-top:10px;line-height:1.7;">Сначала выясняем: сам он настраивает рекламу или кто-то делает за него. Это определяет разговор.<br><br>Если настраивает сам напрямую → рассказываем про бонусную программу.<br>Если через агентство или другой сервис → мягко спрашиваем что привлекло там, чего не хватало у нас. Возможно клиент просто не знал о каких-то возможностях — тогда дорассказываем без давления.<br>Если клиент говорит о нехватке функционала или прямых доступах → рассказываем про прямые аккаунты.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 5. Другие инструменты -->
+  <div class="section" id="tools">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">Другие инструменты — предлагаем по ситуации</div>
+    </div>
+    <div class="section-body">
+      <p style="font-size:13px;color:#444;margin-bottom:12px;">После основного разговора смотрим в аккаунт — что ещё было запущено раньше, чего нет сейчас:</p>
+      <ul class="list">
+        <li><b>SEO-продвижение не запускалось или остановлено</b> → предлагаем двухнедельный бесплатный тест SEO</li>
+        <li><b>ВКонтакте реклама не запускалась или была остановлена</b> → сначала уточняем актуальна ли реклама ВКонтакте для клиента сейчас и нужна ли помощь с настройкой. Только если да — рассказываем что можно запустить через нас с бонусами до 19% по ВКонтакте рекламе</li>
+        <li><b>Авито</b> → если клиент продаёт на Авито — прямой аккаунт, до 5% бонусов</li>
+        <li><b>Промостраницы, Яндекс Бизнес</b> → можно упомянуть самим: клиент может не знать что это у нас есть. Коротко рассказываем как возможность, не навязываем.</li>
+      </ul>
+      <div class="alert alert-blue" style="margin-top:14px;margin-bottom:0">
+        <span class="alert-icon">💡</span>
+        <div>Исходим из потребности клиента — сначала слушаем, потом предлагаем. Один-два релевантных инструмента лучше чем список из пяти. Клиент мог уйти просто потому что не знал о новых возможностях — с 2025 года платформа сильно выросла: появились прямые аккаунты, новые инструменты, бонусная программа. Это хороший повод вернуться к разговору.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Бонусная программа -->
+  <div class="section" id="bonus">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">Бонусная программа</div>
+    </div>
+    <div class="section-body">
+      <div class="alert alert-blue">
+        <span class="alert-icon">📚</span>
+        <div>По всем вопросам клиента про бонусную программу — держите под рукой <strong>обучение по бонусной программе</strong>. Оно есть у каждого менеджера. Там подробно расписаны механика, цифры и ответы на типичные вопросы.</div>
+      </div>
+
+      
+      
+      
+
+      
+      </div>
+
+      
+    </div>
+  </div>
+
+  <!-- 7. Что фиксируем -->
+  <div class="section" id="fixation">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">Что фиксируем в AmoCRM по каждому звонку</div>
+    </div>
+    <div class="section-body">
+      <ul class="list">
+        <li><b>Запускает ли сейчас рекламу</b> — да / нет / пауза</li>
+        <li><b>Где запускает</b> — напрямую, агентство, другой сервис (какой именно)</li>
+        <li><b>Причина ухода от нас</b> — если назвал</li>
+        <li><b>Реакция на бонусную программу</b> — заинтересовался / отказался / уже знал</li>
+        <li><b>Что сказал про платформу</b> — любой отзыв, позитивный или негативный</li>
+        <li><b>Следующий шаг и дата перезвонка</b></li>
+      </ul>
+      <div class="alert alert-orange" style="margin-top:14px;margin-bottom:0">
+        <span class="alert-icon">📌</span>
+        <div>Особо фиксируем отказы и реакции по <strong>бонусной программе</strong> — это один из главных инструментов которые мы отрабатываем в этой базе. Что смущает, что не понял клиент, что понял неправильно — всё это ценно. Сообщаем руководителю.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. Правила -->
+  
+
+</div>
+</body>
+</html>

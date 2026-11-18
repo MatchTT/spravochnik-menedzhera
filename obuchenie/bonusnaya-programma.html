@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Обучение: Бонусная программа PromoPult</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#f5f5f7;color:#1a1a2e;font-size:15px;line-height:1.65}
+
+/* HERO */
+.hero{background:#1a1a2e;padding:48px 32px 40px;text-align:center}
+.hero-badge{display:inline-block;background:rgba(239,159,39,0.18);border:1px solid rgba(239,159,39,0.5);color:#EF9F27;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;letter-spacing:1px;margin-bottom:18px;text-transform:uppercase}
+.hero h1{font-size:32px;font-weight:800;color:white;line-height:1.2;margin-bottom:12px}
+.hero h1 span{color:#EF9F27}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.5);max-width:600px;margin:0 auto 24px}
+.hero-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);font-size:12px;padding:5px 14px;border-radius:20px;text-decoration:none;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.pill:hover{background:rgba(239,159,39,0.2);border-color:rgba(239,159,39,0.5);color:#EF9F27}
+
+/* LAYOUT */
+.page{max-width:860px;margin:0 auto;padding:40px 20px}
+
+/* SECTION */
+.section{margin-bottom:48px}
+.section-num{font-size:11px;font-weight:700;color:#EF9F27;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.section-title{font-size:24px;font-weight:800;color:#1a1a2e;margin-bottom:6px}
+.section-lead{font-size:15px;color:#666;margin-bottom:24px;line-height:1.6}
+
+/* CARD */
+.card{background:white;border-radius:16px;padding:24px 28px;margin-bottom:16px;box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+.card-title{font-size:16px;font-weight:700;margin-bottom:10px;color:#1a1a2e}
+.card p{font-size:14px;color:#444;line-height:1.65;margin-bottom:10px}
+.card p:last-child{margin-bottom:0}
+
+/* ANALOGY CARD */
+.analogy{border-left:4px solid #EF9F27;background:#fff8ed;border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:16px}
+.analogy-label{font-size:11px;font-weight:700;color:#EF9F27;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.analogy p{font-size:14px;color:#5a3e00;line-height:1.65}
+
+/* COMPARE GRID */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:600px){.compare{grid-template-columns:1fr}}
+.compare-card{background:white;border-radius:14px;padding:20px 22px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.compare-card .ct{font-size:13px;font-weight:700;color:#999;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.compare-card .cv{font-size:14px;color:#333;line-height:1.6}
+.compare-card.gold{border-top:3px solid #EF9F27}
+.compare-card.dark{background:#1a1a2e;border-top:3px solid #EF9F27}
+.compare-card.dark .ct{color:rgba(255,255,255,0.4)}
+.compare-card.dark .cv{color:rgba(255,255,255,0.85)}
+
+/* LAW BLOCK */
+.law-block{background:linear-gradient(135deg,#1a1a2e,#2c2c44);border-radius:16px;padding:28px 32px;color:white;margin-bottom:16px}
+.law-block h3{font-size:18px;font-weight:700;color:#EF9F27;margin-bottom:12px}
+.law-block p{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:10px}
+.law-block p:last-child{margin-bottom:0}
+.law-block strong{color:white}
+
+/* SCRIPT BLOCK */
+.script{background:#f0f7ff;border-radius:14px;padding:20px 24px;margin-bottom:12px;border:1px solid #c8dff8}
+.script-role{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.script-role.mgr{color:#1d6ecf}
+.script-role.cli{color:#666}
+.script p{font-size:14px;line-height:1.65;color:#1a1a2e}
+
+/* OBJECTION */
+.obj{background:white;border-radius:14px;padding:20px 24px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.obj-q{font-size:14px;font-weight:700;color:#c0392b;margin-bottom:10px}
+.obj-q::before{content:'❓ '}
+.obj-a{font-size:14px;color:#1a1a2e;line-height:1.65}
+.obj-a::before{content:'✅ '; color:#27ae60}
+
+/* EXAMPLE BOX */
+.example{background:#1a1a2e;border-radius:14px;padding:22px 26px;color:white;margin:16px 0}
+.example-title{font-size:13px;font-weight:700;color:#EF9F27;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+.ex-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:14px}
+.ex-row:last-child{border-bottom:none;padding-top:14px;margin-top:4px}
+.ex-row .el{color:rgba(255,255,255,0.5)}
+.ex-row .ev{color:white;font-weight:600}
+.ex-row.total .el{color:#EF9F27;font-weight:700}
+.ex-row.total .ev{color:#EF9F27;font-size:18px;font-weight:800}
+
+/* STEPS */
+.steps{counter-reset:step}
+.step{display:flex;gap:18px;margin-bottom:20px;align-items:flex-start}
+.step-num{width:36px;height:36px;background:#EF9F27;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:white;flex-shrink:0}
+.step-body{flex:1}
+.step-title{font-size:15px;font-weight:700;margin-bottom:4px;color:#1a1a2e}
+.step-text{font-size:14px;color:#555;line-height:1.6}
+
+/* HIGHLIGHT */
+.hl{background:#fff3cd;border-radius:10px;padding:14px 18px;font-size:14px;color:#6d4c00;line-height:1.6;margin:14px 0;border-left:3px solid #EF9F27}
+.hl strong{color:#4a3000}
+
+/* DIVIDER */
+hr{border:none;border-top:1px solid #eee;margin:40px 0}
+
+/* NAV */
+.toc{background:white;border-radius:16px;padding:24px 28px;box-shadow:0 2px 16px rgba(0,0,0,0.06);margin-bottom:40px}
+.toc-title{font-size:14px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.toc a{display:block;font-size:14px;color:#EF9F27;text-decoration:none;padding:5px 0;border-bottom:1px solid #f5f5f5;font-weight:500}
+.toc a:last-child{border-bottom:none}
+.toc a:hover{color:#BA7517}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid #e4e4e7;padding:10px 20px;font:500 13px Inter,system-ui,sans-serif"><a href="../razdel-bonusy.html" style="color:#71717a;text-decoration:none">← Бонусная программа</a></div>
+
+<div class="hero">
+  <div class="hero-badge">Обучение для менеджеров по продажам</div>
+  <h1>Бонусная программа<br><span>PromoPult</span></h1>
+  <div class="hero-sub">Как продавать бонусную программу, отвечать на возражения и объяснять клиентам ценность на живых примерах</div>
+  <div class="hero-pills">
+    <a class="pill" href="#s1">Яндекс Директ</a>
+    <a class="pill" href="#s1">VK Реклама</a>
+    <a class="pill" href="#s7">Промокод PPDISC</a>
+    <a class="pill" href="#s2">Закон 3%</a>
+    <a class="pill" href="#s3">Живые примеры</a>
+    <a class="pill" href="#v-credit">Кредитная линия</a>
+    <a class="pill" href="#v-prenos">Перенос проектов</a>
+    <a class="pill" href="#s11">Вывод бонусов</a>
+    <a class="pill" href="#s12">Агентства</a>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="toc">
+    <div class="toc-title">Содержание</div>
+    <a href="#s1">1. Что такое бонусная программа — простым языком</a>
+    <a href="#s2">2. Почему ставки без промокода на 3 пп ниже — закон о рекламе</a>
+    <a href="#s3">3. Живые аналогии для объяснения клиенту</a>
+    <a href="#s4">4. Примеры расчёта выгоды для клиента</a>
+    <a href="#s5">5. Скрипты продаж — что говорить</a>
+    <a href="#s6">6. Отработка возражений</a>
+    <a href="#s7">7. Промокод PPDISC — как презентовать</a>
+    <a href="#s9">8. Продажа Директа и VK клиентам на SEO — кому и как предлагать</a>
+    <a href="#s11">9. Как работает вывод бонусов — важно знать каждому</a>
+    <a href="#s12">10. Агентства — отдельные правила и статус</a>
+    <a href="#s13">11. Что делаем и что не делаем — правила работы</a>
+    <a href="#s8">12. Шпаргалка: ключевые факты</a>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section" id="s1">
+    <div class="section-num">Раздел 1</div>
+    <div class="section-title">Что такое бонусная программа — простым языком</div>
+    <div class="section-lead">Прежде чем продавать — нужно самому чётко понять суть. Разбираемся без лишних терминов.</div>
+
+    <div class="card">
+      <div class="card-title">Суть в одном предложении</div>
+      <p>Клиент тратит деньги на рекламу в Яндекс Директ и VK Реклама через PromoPult — и получает обратно часть потраченного в виде <strong>бонусных баллов</strong>, которые можно использовать для оплаты рекламы.</p>
+      <p>Это не скидка и не прямой кэшбэк — это <strong>бонусы на балансе</strong>, которые можно использовать для пополнения рекламных кабинетов. Мы намеренно называем их бонусами — это юридически важная терминология, связанная с требованиями рекламных платформ.</p>
+    </div>
+
+    <div class="card" style="border-left:3px solid #c53030;background:#fff5f5">
+      <div class="card-title" style="color:#c53030">⚠️ Важно: как говорим — и как не говорим</div>
+      <p>Яндекс запрещает выплачивать агентское вознаграждение конечным рекламодателям. Если Яндекс обнаружит, что мы выплачиваем прямой кэшбэк — последствия серьёзные: пересмотр контракта, сокращение или закрытие партнёрки.</p>
+      <p>Поэтому есть чёткие правила по терминологии в разговоре с клиентами:</p>
+      <table style="width:100%;border-collapse:collapse;margin-top:8px;font-size:13px">
+        <tr style="background:#f8d7da">
+          <td style="padding:7px 12px;border:1px solid #f5c6cb;font-weight:700;color:#721c24">❌ Не говорим</td>
+          <td style="padding:7px 12px;border:1px solid #f5c6cb;font-weight:700;color:#721c24">✅ Говорим вместо этого</td>
+        </tr>
+        <tr>
+          <td style="padding:7px 12px;border:1px solid #f0f0f0;color:#444">кэшбэк</td>
+          <td style="padding:7px 12px;border:1px solid #f0f0f0;color:#276749;font-weight:600">бонусы / баллы</td>
+        </tr>
+        <tr style="background:#fafafa">
+          <td style="padding:7px 12px;border:1px solid #f0f0f0;color:#444">живые деньги / деньги обратно</td>
+          <td style="padding:7px 12px;border:1px solid #f0f0f0;color:#276749;font-weight:600">бонусные баллы / начисление бонусов</td>
+        </tr>
+        <tr>
+          <td style="padding:7px 12px;border:1px solid #f0f0f0;color:#444">возвращаем деньги</td>
+          <td style="padding:7px 12px;border:1px solid #f0f0f0;color:#276749;font-weight:600">начисляем бонусы / вы получаете бонусы</td>
+        </tr>
+        <tr style="background:#fafafa">
+          <td style="padding:7px 12px;border:1px solid #f0f0f0;color:#444">агентское вознаграждение</td>
+          <td style="padding:7px 12px;border:1px solid #f0f0f0;color:#276749;font-weight:600">бонусная программа / бонусы</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Как работает ставка</div>
+      <p>Ставка бонуса зависит от ежемесячного оборота клиента. Чем больше тратит — тем выше процент возврата. Это называется прогрессивная шкала.</p>
+      <div class="example">
+        <div class="example-title">Шкала ставок Яндекс Директ (с промокодом PPDISC)</div>
+        <div class="ex-row"><span class="el">от 0 руб.</span><span class="ev">5%</span></div>
+        <div class="ex-row"><span class="el">от 20 000 руб.</span><span class="ev">5,5%</span></div>
+        <div class="ex-row"><span class="el">от 85 000 руб.</span><span class="ev">6%</span></div>
+        <div class="ex-row"><span class="el">от 175 000 руб.</span><span class="ev">6,5%</span></div>
+        <div class="ex-row"><span class="el">от 400 000 руб.</span><span class="ev">7%</span></div>
+        <div class="ex-row"><span class="el">от 850 000 руб.</span><span class="ev">7,5%</span></div>
+        <div class="ex-row"><span class="el">от 4 000 000 руб.</span><span class="ev">8%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="s2">
+    <div class="section-num">Раздел 2</div>
+    <div class="section-title">Почему без промокода ставки на 3 пп ниже</div>
+    <div class="section-lead">Это самый частый вопрос. Клиент видит таблицу, видит ставку без промокода и спрашивает: «А почему меньше?». Вот исчерпывающий ответ.</div>
+
+    <div class="law-block">
+      <h3>⚖️ Федеральный закон от 26 декабря 2024 г. № 479-ФЗ</h3>
+      <p>С <strong>1 апреля 2025 года</strong> в России вступила в силу статья 18.2 Федерального закона «О рекламе». Она устанавливает обязательное отчисление <strong>3% от доходов с интернет-рекламы</strong> в государственный бюджет.</p>
+      <p>Кто платит: операторы рекламных платформ — Яндекс, VK и другие. Эти деньги направляются на поддержку российских разработчиков ПО и сокращение зависимости от зарубежных технологий.</p>
+      <p>Что это значит для PromoPult: платформа получает от рекламных систем вознаграждение, но из него обязана отчислить 3% государству. Поэтому <strong>базовая ставка бонуса для клиента на 3 пп ниже</strong> максимальной. Это не прихоть PromoPult — это закон.</p>
+    </div>
+
+    <div class="hl">
+      <strong>Как объяснить клиенту просто:</strong> «Яндекс теперь обязан отдавать 3% от своих доходов с рекламы государству — это новый закон с апреля 2025 года. PromoPult получает меньше от Яндекса, поэтому и возвращает клиенту на 3% меньше. Промокод PPDISC компенсирует эту разницу на первые 30 дней.»
+    </div>
+
+    <div class="compare">
+      <div class="compare-card gold">
+        <div class="ct">Без промокода</div>
+        <div class="cv">Ставки из таблицы минус 3 пп. Например, вместо 8% по Яндексу — 5%. Ставка остаётся постоянной, пока не меняется оборот.</div>
+      </div>
+      <div class="compare-card dark">
+        <div class="ct">С промокодом PPDISC</div>
+        <div class="cv">Максимальные ставки из таблицы — ровно те, что указаны. Яндекс до 8%, VK до 19%. Действует 30 дней.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section" id="s3">
+    <div class="section-num">Раздел 3</div>
+    <div class="section-title">Живые аналогии для объяснения клиенту</div>
+    <div class="section-lead">Клиенты лучше понимают через сравнение с тем, что им уже знакомо. Вот несколько аналогий, которые работают в разговоре.</div>
+
+    <div class="analogy">
+      <div class="analogy-label">Аналогия 1 — Кэшбэк по банковской карте</div>
+      <p>«Представьте карту с бонусами: вы делаете покупки и вам начисляют баллы, которые можно потратить снова. Бонусная программа PromoPult работает по той же логике — вы тратите бюджет на рекламу, и часть суммы возвращается баллами на ваш счёт. Эти баллы можно использовать для рекламы.»</p>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">Аналогия 2 — Оптовая скидка в магазине</div>
+      <p>«В оптовом магазине: чем больше закупаешь, тем ниже цена. У нас так же: тратишь до 20 000 руб. — возврат 5%, от 400 000 руб. — уже 7%. Растёт бизнес — растёт и процент возврата. Система сама повышает ставку при росте оборота.»</p>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">Аналогия 3 — Программа лояльности авиакомпании</div>
+      <p>«Как мили у авиакомпаний: вы летаете — копите мили — тратите их на следующие билеты. Здесь: вы запускаете рекламу — копятся бонусы — списываете их на следующую рекламу или услуги. Чем активнее летаете, тем выше статус и тем больше миль за каждый рубль.»</p>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">Аналогия 4 — Закон о 3% (объяснение через налог)</div>
+      <p>«Знаете, как НДС включён в цену товара в магазине? Покупатель платит цену на ценнике, а магазин часть отдаёт государству. Здесь похожая история: с апреля 2025 года действует новый сбор — 3% от доходов с интернет-рекламы. Яндекс и VK платят его государству. PromoPult передаёт эту экономику в ставках. Промокод PPDISC — способ получить максимальную ставку, пока он действует.»</p>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">Аналогия 5 — Абонемент в фитнес-клуб</div>
+      <p>«В фитнесе: можно платить за разовое посещение по полной цене, а можно купить абонемент и получить каждое занятие дешевле. Промокод PPDISC — это ваш "абонемент на первый месяц": вы получаете максимальную ставку, пробуете систему, видите реальные бонусы. Потом решаете, как работать дальше.»</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section" id="s4">
+    <div class="section-num">Раздел 4</div>
+    <div class="section-title">Примеры расчёта выгоды для клиента</div>
+    <div class="section-lead">Конкретные цифры убеждают лучше любых слов. Используйте эти примеры в разговоре.</div>
+
+    <div class="card">
+      <div class="card-title">Пример 1 — Малый бизнес, небольшой бюджет</div>
+      <p>Интернет-магазин тратит 50 000 руб./мес. на Яндекс Директ и 50 000 руб./мес. на VK Рекламу. Месяц 1 с промокодом PPDISC — абсолютный максимум площадки: Яндекс 8%, VK 19%. Месяцы 2–3 — ставка по тиру оборота −3 пп: Яндекс 2,5%, VK 7%.</p>
+    </div>
+    <div class="example">
+      <div class="example-title">Расчёт за квартал (Яндекс Директ + VK Реклама, по 50 000 руб./мес.)</div>
+      <div class="ex-row"><span class="el">Расход за квартал (3 мес. × 2 площадки)</span><span class="ev">300 000 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 1 — Яндекс, PPDISC макс. 8%</span><span class="ev">4 000 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 1 — VK, PPDISC макс. 19%</span><span class="ev">9 500 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 2 — Яндекс по тиру −3 пп: 2,5%</span><span class="ev">1 250 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 2 — VK по тиру −3 пп: 7%</span><span class="ev">3 500 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 3 — Яндекс по тиру −3 пп: 2,5%</span><span class="ev">1 250 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 3 — VK по тиру −3 пп: 7%</span><span class="ev">3 500 ₽</span></div>
+      <div class="ex-row total"><span class="el">Итого бонус за квартал</span><span class="ev">23 000 ₽</span></div>
+    </div>
+    <div class="hl">
+      <strong>Совет менеджеру:</strong> Используйте квартальные цифры из калькулятора — они конкретны и наглядны. Если нужна годовая оценка — умножьте на 4: 23 000 × 4 = <strong>~92 000 ₽ в год</strong>. Это бонусы, которые клиент сейчас не получает, работая напрямую.
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <div class="card-title">Пример 2 — Агентство, средний бюджет</div>
+      <p>Агентство ведёт клиентов: 300 000 руб./мес. Яндекс + 150 000 руб./мес. VK. Месяц 1 с PPDISC — абсолютный максимум: Яндекс 8%, VK 19%. Месяцы 2–3 — по тиру оборота −3 пп: Яндекс 3,5%, VK 9%.</p>
+    </div>
+    <div class="example">
+      <div class="example-title">Расчёт за квартал (Яндекс 300 000 + VK 150 000 руб./мес.)</div>
+      <div class="ex-row"><span class="el">Месяц 1 — Яндекс, PPDISC макс. 8%</span><span class="ev">24 000 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 1 — VK, PPDISC макс. 19%</span><span class="ev">28 500 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 2 — Яндекс по тиру −3 пп: 3,5%</span><span class="ev">10 500 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 2 — VK по тиру −3 пп: 9%</span><span class="ev">13 500 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 3 — Яндекс по тиру −3 пп: 3,5%</span><span class="ev">10 500 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 3 — VK по тиру −3 пп: 9%</span><span class="ev">13 500 ₽</span></div>
+      <div class="ex-row total"><span class="el">Итого бонус за квартал</span><span class="ev">100 500 ₽</span></div>
+    </div>
+    <div class="hl">
+      <strong>Совет менеджеру:</strong> Называйте квартальную цифру — она конкретна и не вызывает недоверия. 100 500 руб. за квартал × 4 = <strong>~402 000 руб. в год</strong>. Для годовой оценки просто умножьте квартальный итог на 4.
+    </div>
+
+    <div class="card" style="margin-top:8px">
+      <div class="card-title">Пример 3 — Крупный клиент, высокий оборот</div>
+      <p>E-commerce с бюджетом 1 000 000 руб./мес. на Яндекс Директ. Месяц 1 с PPDISC — абсолютный максимум: 8%. Месяцы 2–3 — тир «от 850 000» = 7,5% −3 пп = 4,5%.</p>
+    </div>
+    <div class="example">
+      <div class="example-title">Расчёт за квартал (Яндекс, 1 млн/мес.)</div>
+      <div class="ex-row"><span class="el">Месяц 1 — PPDISC макс. 8%</span><span class="ev">80 000 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 2 — по тиру −3 пп: 4,5%</span><span class="ev">45 000 ₽</span></div>
+      <div class="ex-row"><span class="el">Месяц 3 — по тиру −3 пп: 4,5%</span><span class="ev">45 000 ₽</span></div>
+      <div class="ex-row total"><span class="el">Итого бонус за квартал</span><span class="ev">170 000 ₽</span></div>
+    </div>
+    <div class="hl">
+      <strong>Совет менеджеру:</strong> 170 000 руб. за квартал × 4 = <strong>~680 000 руб. в год</strong>. Используйте квартал как базу, а год — как ориентир для клиента.
+    </div>
+
+  <!-- SECTION 5 -->
+  <div class="section" id="s5">
+    <div class="section-num">Раздел 5</div>
+    <div class="section-title">Скрипты продаж — что говорить</div>
+    <div class="section-lead">Готовые фразы для разных ситуаций. Адаптируйте под свой стиль общения.</div>
+
+    <div class="script">
+      <div class="script-role mgr">Менеджер — открытие темы</div>
+      <p>«Иван Иванович, вы сейчас тратите на Яндекс Директ около 200 000 рублей в месяц. Я хочу показать вам, как вернуть часть этих денег обратно — просто за то, что вы работаете через PromoPult. Это займёт 2 минуты, хорошо?»</p>
+    </div>
+
+    <div class="script">
+      <div class="script-role mgr">Менеджер — объяснение механики</div>
+      <p>«Работает это так: каждый рубль, который уходит на рекламу, приносит вам бонусы на счёт. При вашем бюджете — это 6,5% от расхода. То есть со 200 000 рублей в месяц вы получаете 13 000 рублей обратно. За год — это уже 156 000 рублей. Эти деньги вы можете снова пустить на рекламу — то есть реклама становится дешевле.»</p>
+    </div>
+
+    <div class="script">
+      <div class="script-role cli">Клиент</div>
+      <p>«Звучит хорошо, но почему ставка 3,5%, а не 6,5%?»</p>
+    </div>
+    <div class="script">
+      <div class="script-role mgr">Менеджер — про 3%</div>
+      <p>«Хороший вопрос. С апреля 2025 года в России действует новый закон — операторы рекламных платформ обязаны отчислять 3% от доходов с интернет-рекламы государству. Это как НДС, только для рекламного рынка. Яндекс платит этот сбор, и это влияет на размер вознаграждения. Именно поэтому базовая ставка на 3 пп ниже максимальной. Но есть промокод PPDISC — он даёт максимальную ставку на 30 дней. Я вам его прямо сейчас скажу.»</p>
+    </div>
+
+    <div class="script">
+      <div class="script-role mgr">Менеджер — закрытие на промокод</div>
+      <p>«Вот промокод: PPDISC. Введите его при подключении — и первые 30 дней у вас будут максимальные ставки из таблицы. Это лучший способ начать и сразу увидеть реальные цифры бонусов. После 30 дней ставка становится стандартной — минус 3 пп от максимума. Но даже стандартная ставка — это стабильное начисление бонусов, которое большинство конкурентов вам не предлагает.»</p>
+    </div>
+
+    <div class="card" style="border-left:3px solid #EF9F27;background:#fff8e1;margin-top:16px">
+      <div class="card-title">Клиент сказал «я подумаю» — алгоритм действий</div>
+      <p>«Подумаю» — это не отказ. Это сигнал, что у клиента остался вопрос или сомнение, которое он не озвучил. Задача менеджера — не отпустить, а зафиксировать следующий шаг.</p>
+    </div>
+
+    <div class="steps" style="margin-bottom:12px">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">В момент звонка — уточнить что именно нужно обдумать</div>
+          <div class="step-text">Не молча принять «подумаю». Спросить мягко: «Конечно, не тороплю. Скажите, что именно хотите обдумать — может, смогу ответить прямо сейчас?» Часто за «подумаю» скрывается конкретный вопрос: про сроки, про перенос, про то как работает вывод.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Зафиксировать конкретную дату следующего контакта</div>
+          <div class="step-text">«Хорошо. Тогда давайте я перезвоню вам [конкретный день и время] — к тому моменту вы как раз всё обдумаете. Удобно?» Не «напишите когда будете готовы» — инициатива остаётся у менеджера.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Отправить материалы сразу после разговора</div>
+          <div class="step-text">В тот же день — письмо или сообщение с конкретным расчётом под бюджет клиента. Не общую презентацию, а: «Как мы считали: при вашем бюджете [X] руб./мес. за квартал — [Y] руб. бонусами. Промокод PPDISC: [код].» Клиент должен увидеть цифры, а не буклет.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Перезвонить в назначенное время</div>
+          <div class="step-text">Открываем разговор не с нуля: «[Имя], мы с вами разговаривали в [день], я отправлял расчёт по бонусам. Как вы, успели посмотреть? Есть вопросы?» Короткое напоминание о контексте снимает неловкость.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Если снова «не готов» — не давить, но дату берём снова</div>
+          <div class="step-text">«Понял, не тороплю. Когда вам будет удобно вернуться к этому вопросу?» Получить конкретный ответ. Если клиент говорит «через месяц» — ставим задачу и звоним через месяц. Без этого шага клиент потерян.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="script">
+      <div class="script-role cli">Клиент</div>
+      <p>«Интересно, но мне надо подумать»</p>
+    </div>
+    <div class="script">
+      <div class="script-role mgr">Менеджер — реакция на «подумаю»</div>
+      <p>«Конечно, не тороплю. Скажите, что именно хотите обдумать — может, сразу отвечу? [пауза] Хорошо, тогда давайте так: я пришлю вам прямо сейчас расчёт под ваш бюджет — там всё конкретно по цифрам. И перезвоню вам в [день, время] — как вам?»</p>
+    </div>
+    <div class="script">
+      <div class="script-role mgr">Менеджер — сообщение после звонка</div>
+      <p>«[Имя], как и обещал — расчёт бонусов для вашего бюджета:<br>
+      • Бюджет: [X] руб./мес. на Яндекс Директ<br>
+      • Месяц 1 с промокодом PPDISC: [Y] руб. бонусами<br>
+      • Месяцы 2–3: [Z] руб. в месяц<br>
+      • Итого за квартал: [итого] руб.<br><br>
+      Промокод: <strong>PPDISC</strong> — активировать при подключении.<br>
+      Если появятся вопросы — пишите, всегда на связи. Перезвоню [дата].»</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section" id="s6">
+    <div class="section-num">Раздел 6</div>
+    <div class="section-title">Отработка возражений</div>
+    <div class="section-lead">Все возражения в одном месте — общие, по бонусной программе и специфические по Яндекс Директ.</div>
+
+    <div class="obj">
+      <div class="obj-q">«Я уже работаю через другой сервис, там тоже есть бонусы»</div>
+      <div class="obj-a">«Отлично, значит вы уже понимаете ценность возврата. Давайте сравним: у нас по VK Реклама ставка до 19%, у большинства аналогов — 5–8%. По Яндексу — до 8% против стандартных 3–5%. Даже если сейчас разница кажется небольшой, на годовом горизонте при бюджете 200 тысяч в месяц это легко 50–80 тысяч рублей разницы. Хотите, посчитаем вместе прямо сейчас?»</div>
+    </div>
+
+    <div class="obj">
+      <div class="obj-q">«Зачем мне бонусная программа, я лучше просто платить меньше»</div>
+      <div class="obj-a">«Бонусы — это и есть способ платить меньше. Вы тратите 100 000 рублей, получаете 6 500 бонусами, и следующий месяц вам стоит уже 93 500. Это не скидка на словах — это реальное снижение стоимости каждого клика. Без каких-либо изменений в самих кампаниях.»</div>
+    </div>
+
+    <div class="obj">
+      <div class="obj-q">«30 дней промокода — это мало, что потом?»</div>
+      <div class="obj-a">«После 30 дней ставка снижается на 3 пп — это связано с законодательным сбором, который мы уже обсудили. Но даже стандартная ставка — это значительное начисление бонусов. Например, при 300 000 руб./мес. на Яндекс вы получаете 3,5% — это 10 500 руб. в месяц, 126 000 руб. в год. И главное: промокод — это старт, чтобы вы почувствовали программу на максимуме.»</div>
+    </div>
+
+    <div class="obj">
+      <div class="obj-q">«Не верю, что это реально работает»</div>
+      <div class="obj-a">«Я понимаю скептицизм. Давайте так: у нас есть калькулятор — введите ваш реальный бюджет, и я прямо на экране покажу, сколько бонусов вы получите в первый месяц. Это займёт 30 секунд. Если цифра вас не убедит — значит не убедит, и мы просто закроем тему.»</div>
+    </div>
+
+    <div class="obj">
+      <div class="obj-q">«А почему 3% вычитается — это скрытая комиссия?»</div>
+      <div class="obj-a">«Нет, это не комиссия PromoPult. Это федеральный закон № 479-ФЗ от декабря 2024 года — с апреля 2025-го все операторы рекламных платформ обязаны отчислять 3% от доходов с интернет-рекламы. Яндекс, VK — все. PromoPult просто честно отражает это в ставках. Промокод PPDISC компенсирует это на первый месяц.»</div>
+    </div>
+
+    <div class="card" style="background:#fff8e1;border-left:3px solid #EF9F27">
+      <div class="card-title">💡 Про вычет 3% — не поднимаем тему первыми</div>
+      <p>Про вычет 3% по закону <strong>не распространяемся без необходимости</strong> — только если клиент сам спросит. На рынке есть сервисы, которые этого не делают (например, eLama в связке с Яндексом работает по другой схеме). Поднимать эту тему первыми — значит самим создавать возражение.</p>
+      <p>Если клиент спрашивает — отвечаем честно и переводим на промокод PPDISC как решение для первого месяца.</p>
+    </div>
+  </div>
+
+    <div class="section-lead" style="margin-top:16px;margin-bottom:12px;font-size:14px;font-weight:700;color:#1a1a2e">Возражения по переходу с Яндекс Директ</div>
+
+    <div class="obj" id="v-credit">
+      <div class="obj-q">«У меня в Яндексе кредитная линия — не хочу её терять»</div>
+      <div class="obj-a">Кредитную линию мы не предоставляем — это нужно признать честно, без попыток обойти. Кредитная линия — это услуга самого Яндекса, она привязана к прямому договору с ними. При переходе через PromoPult клиент работает через наш аккаунт, и кредитная линия в этой схеме недоступна.<br><br>
+      <strong>Что говорим:</strong> «Да, кредитную линию мы не предоставляем — это особенность прямого договора с Яндексом. Если для вас кредитная линия принципиальна, нам нужно взвесить: с одной стороны — отсрочка платежа, с другой — накопленные бонусы [X] руб. в месяц. Хотите посчитаем, что выгоднее в вашем случае?»</div>
+    </div>
+
+    <div class="obj" id="v-prenos">
+      <div class="obj-q">«Когда можно перенести аккаунт — прямо сейчас или нужно ждать?»</div>
+      <div class="obj-a">Здесь важно чётко понимать техническое ограничение: <strong>перенос рекламного аккаунта возможен только с 1-го числа месяца</strong>. Это не наш каприз — так устроена техническая процедура.<br><br>
+      Если клиент хочет начать прямо сейчас, не дожидаясь 1-го числа — можно <strong>создать новый проект</strong> в любое время. Это отдельный вариант, он доступен всегда.<br><br>
+      Перенос существующего аккаунта оформляется <strong>через заявку</strong>. Кнопка для подачи заявки на перенос будет реализована прямо в интерфейсе платформы PromoPult — клиенту не нужно никуда писать отдельно.<br><br>
+      <strong>Что говорим:</strong> «Перенос аккаунта технически происходит с 1-го числа — это стандартная процедура. Если хотите начать раньше — можно создать новый проект прямо сейчас. Заявку на перенос вы сможете подать через кнопку в нашем интерфейсе. Что удобнее в вашем случае?»</div>
+    </div>
+
+    <div class="obj">
+      <div class="obj-q">«Что делать с остатком баланса на текущем аккаунте Яндекса при переносе?»</div>
+      <div class="obj-a">При переносе аккаунта с 1-го числа остаток баланса в Яндекс.Директ остаётся на стороне клиента. Есть два варианта:<br><br>
+      <strong>Вариант 1 — Дорасходовать баланс.</strong> Клиент использует остаток на рекламу до перехода. Удобно, если остаток небольшой.<br><br>
+      <strong>Вариант 2 — Запросить возврат у Яндекса.</strong> Клиент обращается в поддержку Яндекс.Директ с заявкой на возврат неиспользованного остатка на реквизиты. После этого пополняет баланс уже у нас.<br><br>
+      <strong>Что говорим:</strong> «С остатком баланса в Яндексе два варианта: либо дорасходуете на рекламу, либо запросите возврат у Яндекса. Я помогу разобраться с каждым шагом.»</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Важно: перенос — только с 1-го числа, новый проект — в любое время</div>
+      <p><strong>Перенос аккаунта</strong> — строго с 1-го числа месяца, это техническое ограничение. Оформляется через заявку — кнопка будет в интерфейсе платформы PromoPult.</p>
+      <p><strong>Новый проект</strong> — можно создать в любой момент, без привязки к дате. Это альтернатива для тех, кто не хочет ждать.</p>
+      <p><strong>Баланс</strong> на старом аккаунте Яндекса — на усмотрение клиента: дорасходовать или вернуть через Яндекс. Мы помогаем разобраться с вариантами.</p>
+      <div class="hl">
+        <strong>Ключевая фраза:</strong> «Перенос аккаунта — с 1-го числа, оформляем через заявку прямо в платформе. Если не хотите ждать — создаём новый проект прямо сейчас.»
+      </div>
+    </div>
+
+    <div class="section-lead" style="margin-top:20px;margin-bottom:12px;font-size:14px;font-weight:700;color:#1a1a2e">Другие возражения</div>
+
+    <div class="obj">
+      <div class="obj-q">«Яндекс назначил мне персонального менеджера — это совместимо с работой через вас?»</div>
+      <div class="obj-a">Да, полностью совместимо. Если проект ведётся через PromoPult — у клиента всё равно есть прямой доступ к рекламному кабинету Яндекса. Всеми возможностями Яндекса (менеджер, аналитика, поддержка) клиент пользуется в полном объёме. Яндекс периодически звонит клиентам сам — это нормально.<br><br>
+      <strong>Что говорим:</strong> «Да, конечно. Вы продолжаете работать с Яндексом напрямую — менеджер, аналитика, всё остальное остаётся. Мы просто обеспечиваем пополнение бюджета через нас, и за это вы получаете бонусы.»</div>
+    </div>
+
+    <div class="obj">
+      <div class="obj-q">«Конкурент предлагает мне условия лучше — дайте мне тоже лучше»</div>
+      <div class="obj-a">Индивидуальных условий нет. Наша программа одна из лучших на рынке. Мы не участвуем в аукционах условий — ни с другими агрегаторами, ни с отдельными сервисами. Торговаться и уходить в минус не будем.<br><br>
+      <strong>Что говорим:</strong> «Наша программа фиксированная — индивидуальных условий мы не делаем. Но давайте посчитаем по нашей стандартной таблице: при вашем бюджете это [X] бонусов в квартал. Сравните сами — ставки на рынке очень конкурентные.»</div>
+    </div>
+  
+
+  <!-- SECTION 7 -->
+  <div class="section" id="s7">
+    <div class="section-num">Раздел 7</div>
+    <div class="section-title">Промокод PPDISC — как презентовать</div>
+    <div class="section-lead">Промокод — это конкретный инструмент для закрытия сделки. Используйте его правильно.</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Называйте промокод как эксклюзив</div>
+          <div class="step-text">«У меня для вас есть промокод — он даёт максимальные ставки на 30 дней. Это PPDISC.» Не «вот промокод», а «у меня есть для вас». Это создаёт ценность.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Объясните, что именно меняется</div>
+          <div class="step-text">«С этим промокодом ваша ставка вырастет с 3,5% до 6,5% по Яндексу — то есть в почти два раза больше бонусов за первый месяц.»</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Сразу назовите конкретную сумму</div>
+          <div class="step-text">«При вашем бюджете 200 000 руб. это разница между 7 000 и 13 000 рублей бонусами только за первый месяц. Промокод работает один раз, поэтому имеет смысл подключить его в самом начале.»</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Создайте срочность</div>
+          <div class="step-text">«Промокод действует 30 дней с момента активации. Если подключить сейчас — он начнёт работать с текущего месяца.»</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9 — Продажа Директа и VK клиентам на SEO -->
+  <div class="section" id="s9">
+    <div class="section-num">Раздел 8</div>
+    <div class="section-title">Продажа Директа и VK клиентам на SEO</div>
+    <div class="section-lead">Если клиент работает только с SEO — это не значит, что он не нужен в Директе или VK. Предлагать можно и нужно каждому. Вопрос в том, как именно.</div>
+
+    <div class="card">
+      <div class="card-title">Клик.Ру — не наш конкурент</div>
+      <p>Клик.Ру — премиальный сервис для профессиональных маркетологов с большими бюджетами: максимум настроек, поддержка, сторонние инструменты. PromoPult ориентирован на <strong>самостоятельных клиентов</strong>, которым не нужна сопроводительная поддержка, но нужен хороший процент бонусов.</p>
+      <p>Мы <strong>не переманиваем клиентов Клика</strong> и не участвуем в конкуренции с ним. Клиентам Клик.Ру переход в прямой аккаунт через PromoPult не предлагаем.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">⚠️ Главное правило: не предлагаем переход в прямой аккаунт</div>
+      <p>Если клиент уже запустил Яндекс.Директ или VK Рекламу через платформу PromoPult — <strong>не предлагаем ему переходить в прямой аккаунт</strong>. Это невыгодно компании, и менеджер не должен инициировать такой разговор.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Как квалифицировать: три вопроса</div>
+      <p>Прежде чем предлагать, выясните ситуацию клиента. Задайте эти вопросы органично в разговоре:</p>
+      <div class="steps" style="margin-top:14px">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">«Вы запускаете контекстную рекламу или таргет?»</div>
+            <div class="step-text">Просто уточняем факт. Если да — переходим к вопросу 2. Если нет — это потенциальный новый клиент для Директа/VK.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">«Вы работаете напрямую через Яндекс / VK или через какой-то сервис?»</div>
+            <div class="step-text">Ключевой вопрос с двумя разными сценариями:<br><br><strong>Если напрямую</strong> — клиент точно не получает бонусы. Это горячий сценарий, сразу предлагаем подключение.<br><br><strong>Если через другой сервис</strong> — уточняем: «А там есть бонусная программа?» Если нет — предлагаем нашу. Если есть — предлагаем сравнить: «Давайте я покажу наши ставки, они на рынке одни из лучших».</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">«Какой примерно бюджет в месяц?»</div>
+            <div class="step-text">Это нужно, чтобы посчитать конкретную сумму бонуса. После этого можно открыть калькулятор и показать цифры прямо в разговоре.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Три сценария и что делать в каждом</div>
+    </div>
+
+    <div class="compare">
+      <div class="compare-card gold">
+        <div class="ct">Сценарий А — Работает напрямую через Яндекс/VK</div>
+        <div class="cv">Это самый горячий сценарий. Клиент теряет деньги каждый месяц — он мог бы получать бонусы, но не получает.<br><br>
+        <strong>Что говорим:</strong> «При вашем бюджете [X] руб. в месяц — через PromoPult вы получаете [Y] руб. бонусами. За год это [Z] руб. Ваши кампании остаются как есть, просто бюджет проходит через нас. Хотите, я покажу расчёт прямо сейчас?»</div>
+      </div>
+      <div class="compare-card gold">
+        <div class="ct">Сценарий Б — Работает через другой сервис</div>
+        <div class="cv">Есть весомый аргумент: <strong>бесшовный перенос из Яндекс Директ</strong>. Это самый популярный запрос — сейчас в разработке, скоро будет доступен. Пока собираем контакты заинтересованных клиентов.<br><br>
+        <strong>Что говорим:</strong> «У нас скоро появится бесшовный перенос из Яндекс Директ — без потери истории и настроек. Это самый частый запрос, поэтому делаем в первую очередь. Я могу занести вас в список тех, кого уведомим первыми — и сразу посчитаем, сколько бонусов вы получите с вашим бюджетом.»</div>
+      </div>
+    </div>
+
+    <div class="compare">
+      <div class="compare-card">
+        <div class="ct">Сценарий В — Не запускает контекст/таргет вообще</div>
+        <div class="cv">Клиент на SEO и не думал о Директе или VK — нужно объяснить ценность. Начинаем не с бонусов, а с результата.<br><br>
+        <strong>Что говорим:</strong> «SEO — это долгосрочно. Директ даёт заявки уже с первого дня. Для сайтов в конкурентных нишах они отлично работают вместе. Хотите, я расскажу, как это выглядит для вашей тематики?»</div>
+      </div>
+      <div class="compare-card dark">
+        <div class="ct">Кому НЕ предлагаем переход в прямой аккаунт</div>
+        <div class="cv">— Клиентам, которые уже запускают Яндекс.Директ или VK через PromoPult — переход в прямой аккаунт не предлагаем. Это невыгодно компании, и менеджер не должен инициировать такой разговор.<br><br>— Клиентам Клик.Ру — не переманиваем и не участвуем в конкуренции с Кликом.<br><br>Бонусы клиенты в этих случаях не получают — это не аргумент для предложения перехода.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Калькулятор как инструмент продажи</div>
+      <p>У нас есть калькулятор бонусов — он считает сумму бонусов по всем 5 площадкам за 3 месяца. Используйте его прямо в разговоре или в переписке: введите бюджет клиента и покажите конкретные цифры.</p>
+      <p><strong>Как применять:</strong> «Давайте прямо сейчас посчитаем. Скажите ваш примерный бюджет на Директ в месяц — [пауза]. Смотрите: при [X] руб. в месяц, в первый месяц с промокодом PPDISC вы получаете [Y] руб. бонусами. Со второго месяца — [Z] руб. За квартал это [итого] руб. — это реальные деньги на рекламу.»</p>
+      <div class="hl">
+        <strong>Совет:</strong> Называйте годовую сумму — она производит больше впечатления. 8 000 руб. в месяц = почти <strong>100 000 руб. в год</strong>. Это то, что клиент прямо сейчас теряет, работая без PromoPult.
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- SECTION 11 — Вывод бонусов -->
+  <div class="section" id="s11">
+    <div class="section-num">Раздел 9</div>
+    <div class="section-title">Как работает вывод бонусов — важно знать каждому</div>
+    <div class="section-lead">Этот раздел — не для клиента. Это то, что должен понимать менеджер, чтобы правильно отвечать на вопросы о выводе бонусов.</div>
+
+    <div class="card">
+      <div class="card-title">Почему нет прямого вывода на карту — суть ограничения</div>
+      <p>Яндекс <strong>запрещает</strong> выплачивать агентское вознаграждение конечным рекламодателям. Если Яндекс обнаружит прямой кэшбэк с рекламного оборота — последствия серьёзные: пересмотр контракта, сокращение или закрытие партнёрки.</p>
+      <p>Поэтому то, что клиент получает — это <strong>баллы</strong>, а не живые деньги. Именно поэтому мы везде говорим «бонусы» и «баллы» — это не маркетинговая красота, это юридическая необходимость. <strong>Не называйте это кэшбэком или деньгами в разговоре с клиентом вслух.</strong></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Что сейчас доступно клиенту для использования бонусов</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Пополнить рекламный кабинет Wildberries</div>
+            <div class="step-text">Доступно напрямую в интерфейсе. Актуально для селлеров — предлагайте в первую очередь тем, кто торгует на WB.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Перевести баллы другому пользователю системы</div>
+            <div class="step-text">Раздел «Перевод баллов сторонним пользователям» в разделе вывода. Клиент указывает ID пользователя. Именно через этот механизм работает фактический вывод денег.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Скрипт — как предложить перевод баллов клиенту</div>
+      <p>Когда клиент спрашивает как воспользоваться бонусами или вывести их — объясняем через механизм обмена:</p>
+      <div class="script" style="margin-top:12px">
+        <div class="script-role mgr">Менеджер</div>
+        <p>«У вас накопились бонусы — отлично. Вывести их можно через обмен с другим пользователем нашей системы. Работает просто: вы переводите свои баллы на аккаунт другого пользователя, а он отправляет вам деньги. Я подскажу вам нужный аккаунт — это займёт пару минут. Скажите, сколько бонусов хотите вывести и на какие реквизиты вам перевести деньги?»</p>
+      </div>
+      <div class="script" style="margin-top:8px">
+        <div class="script-role cli">Клиент соглашается</div>
+        <p>«Хорошо, давайте попробуем»</p>
+      </div>
+      <div class="script" style="margin-top:8px">
+        <div class="script-role mgr">Менеджер — дальнейшие действия</div>
+        <p>«Отлично. Тогда вот ID аккаунта для перевода: [ID]. Зайдите в раздел вывода — там есть кнопка "Перевод баллов сторонним пользователям". Укажите этот ID и сумму баллов. Как только перевод пройдёт — напишите мне реквизиты куда отправить деньги: карта или другой удобный способ. Деньги придут в течение 2–3 дней. Комиссий нет.»</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Дальнейшие действия менеджера после предложения перевода</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Передать клиенту ID аккаунта для перевода</div>
+            <div class="step-text">Сообщить ID нашего аккаунта в системе. Уточнить у клиента сумму баллов для перевода.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Убедиться что клиент сделал перевод</div>
+            <div class="step-text">Если клиент не написал в течение дня — напомнить: «Как прошёл перевод? Если нужна помощь с интерфейсом — подскажу пошагово.» Не ждать пассивно.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Получить реквизиты и передать на обработку</div>
+            <div class="step-text">Взять у клиента реквизиты для получения денег. Передать информацию о переводе — сумма, ID отправителя, реквизиты клиента.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">Подтвердить получение</div>
+            <div class="step-text">Через 2–3 дня уточнить у клиента: «Деньги пришли? Всё в порядке?» Это важно — закрывает вопрос и укрепляет доверие.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hl">
+        <strong>Главное правило:</strong> менеджер ведёт клиента через весь процесс — не передаёт инструкцию и не ждёт. Каждый шаг сопровождается: объяснил → убедился что сделал → получил реквизиты → подтвердил получение денег.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Как работает вывод денег сейчас — пошагово для менеджера</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Клиент хочет получить деньги за бонусы</div>
+            <div class="step-text">Менеджер сообщает клиенту <strong>ID нашего аккаунта</strong> для перевода. Этот аккаунт принадлежит компании.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Клиент переводит баллы на этот аккаунт</div>
+            <div class="step-text">Через интерфейс «Перевод баллов сторонним пользователям». Указывает сколько баллов и на какой ID.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Клиент называет реквизиты для получения денег</div>
+            <div class="step-text">Берём у клиента реквизиты — карта, WebMoney и т.д. Передаём информацию. Деньги поступают в течение 2–3 дней.</div>
+          </div>
+        </div>
+      </div>
+      <div class="hl">
+        <strong>Что говорим клиенту просто:</strong> «Я подскажу вам аккаунт, на который можно перевести бонусы. Вы делаете перевод, называете мне реквизиты, и в течение 2–3 дней деньги у вас. Никаких комиссий.»
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Нельзя: вернуть бонусы обратно на баланс PromoPult</div>
+      <p>Часто спрашивают: «А можно просто зачислить бонусы обратно на мой баланс?» — <strong>нет, и это принципиально</strong>. Если вернуть баллы на общий баланс, клиент сможет снова закинуть их на Директ — и мы нарушим правила Яндекса.</p>
+      <p><strong>Как объяснить клиенту:</strong> «Технически так устроено, что бонусы нельзя вернуть на баланс напрямую. Но вы можете вывести их деньгами и снова пополнить баланс у нас — займёт пару дней, комиссий нет.»</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Важно про кнопки вывода в интерфейсе</div>
+      <p>В разделе вывода есть кнопки <strong>WebMoney и Мир</strong> — они активны, но для конечного клиента через них можно вывести <strong>только реферальский доход</strong>, не партнёрские бонусы. Если клиент запутался — объясните это сразу, чтобы не было ожиданий.</p>
+      <p>Исключение: агентства — для них прямой вывод на WebMoney и карту открыт. Подробнее — в следующем разделе.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 12 — Агентства -->
+  <div class="section" id="s12">
+    <div class="section-num">Раздел 10</div>
+    <div class="section-title">Агентства — отдельные правила и статус</div>
+    <div class="section-lead">Для агентств всё проще: Яндекс разрешает делиться вознаграждением с агентствами напрямую. Никаких схем с переводами — прямой вывод денег.</div>
+
+    <div class="card">
+      <div class="card-title">Что даёт статус агентства клиенту</div>
+      <p>Агентство может <strong>выводить деньги напрямую</strong> — на WebMoney, карту и другие доступные способы. Без перевода баллов на сторонний аккаунт, без ожидания. Это белая схема, которую Яндекс разрешает.</p>
+      <p>Можно намекнуть клиенту: если схема с переводом баллов неудобна — при несложных действиях можно получить статус агентства и упростить вывод.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Три критерия для подтверждения статуса агентства</div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Минимум 3 прямых аккаунта в Яндекс.Директ — именно у нас</div>
+            <div class="step-text">Заведённые через PromoPult, не на стороне. То, что параллельно ведётся напрямую — не считается. Три разных клиента/сайта через нашу систему.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Нет одного доминирующего бюджета</div>
+            <div class="step-text">Нельзя: 90 000 руб. на один сайт и по 5 000 на два других «для галочки». Бюджеты должны быть распределены относительно равномерно между клиентами.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Страница или сайт агентства</div>
+            <div class="step-text">Хотя бы промо-страница в Яндексе или любая страница, где указано что ИП / ООО / физлицо оказывает услуги по контекстной рекламе. Полноценный сайт не обязателен.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Процедура: как поставить статус агентства</div>
+      <p><strong>Шаг 1.</strong> Клиент присылает в обратку подтверждение: «Я [название], вот мой сайт/страница, веду контекстную рекламу, вот мои три клиента заведены у вас». <strong>Обязательно сохранить это сообщение.</strong></p>
+      <p><strong>Шаг 2.</strong> В профиле пользователя → «Прочие параметры» → «Дискаунтер-тип» → переключить с «Конечный клиент» на «Агентство». Это может сделать только администратор.</p>
+      <p><strong>Шаг 3.</strong> После переключения у клиента открывается прямой вывод на WebMoney, карту и другие доступные методы.</p>
+      <div class="hl">
+        <strong>Важно:</strong> цель проверки — не уличить клиента, а формально соблюсти процедуру на случай проверки со стороны Яндекса. Глубоко не копаем — получили подтверждение, сохранили, поставили галочку.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 13 — Правила работы -->
+  <div class="section" id="s13">
+    <div class="section-num">Раздел 11</div>
+    <div class="section-title">Что делаем и что не делаем — правила работы</div>
+    <div class="section-lead">Чёткие границы — чтобы не было разночтений в команде.</div>
+
+    <div class="compare">
+      <div class="compare-card gold">
+        <div class="ct">✅ Делаем</div>
+        <div class="cv">
+          — Рассказываем о бонусной программе каждому клиенту с рекламным бюджетом<br><br>
+          — При упоминании Директа или VK — сразу предлагаем бонусную программу с цифрами<br><br>
+          — Показываем калькулятор, называем конкретные суммы<br><br>
+          — Помогаем с ID аккаунта для вывода бонусов и объясняем схему<br><br>
+          — Проверяем и ставим статус агентства по запросу, сохраняем подтверждение<br><br>
+          — Собираем контакты заинтересованных в бесшовном переносе
+        </div>
+      </div>
+      <div class="compare-card dark">
+        <div class="ct">❌ Не делаем</div>
+        <div class="cv">
+          — Не помогаем с настройкой рекламы и не помогаем с миграцией — клиент самостоятелен<br><br>
+          — Не участвуем в торгах условиями — индивидуальных условий нет и не будет<br><br>
+          — Не конкурируем с Клик.Ру, не переманиваем их клиентов<br><br>
+          — Не называем бонусы «кэшбэком» или «живыми деньгами» вслух<br><br>
+          — Не объясняем клиенту схему вывода подробно — просто даём инструкцию<br><br>
+          — Не предлагаем переход в прямой аккаунт тем, кто уже работает через PromoPult
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section" id="s8">
+    <div class="section-num">Раздел 12</div>
+    <div class="section-title">Шпаргалка: ключевые факты</div>
+    <div class="section-lead">Распечатайте или держите под рукой во время звонка.</div>
+
+    <div class="compare">
+      <div class="compare-card gold">
+        <div class="ct">Яндекс Директ — максимум</div>
+        <div class="cv">8% при обороте от 4 млн руб.<br>С промокодом PPDISC — 30 дней<br>Без промокода — минус 3 пп</div>
+      </div>
+      <div class="compare-card gold">
+        <div class="ct">VK Реклама — максимум</div>
+        <div class="cv">19% при обороте от 4 млн руб.<br>С промокодом PPDISC — 30 дней<br>Без промокода — минус 3 пп</div>
+      </div>
+      <div class="compare-card">
+        <div class="ct">Почему минус 3 пп</div>
+        <div class="cv">ФЗ № 479-ФЗ от 26.12.2024, ст. 18.2.<br>Сбор 3% от доходов с интернет-рекламы.<br>Действует с 1 апреля 2025 года.</div>
+      </div>
+      <div class="compare-card">
+        <div class="ct">Промокод PPDISC</div>
+        <div class="cv">Даёт максимальные ставки из таблицы.<br>Действует 30 дней с активации.<br>После — стандартная ставка (−3 пп).</div>
+      </div>
+    </div>
+
+    <div class="hl">
+      <strong>Главный аргумент в одной фразе:</strong> «Вы и так тратите деньги на рекламу — почему бы не получать бонусы с каждого рубля? Это ничего не меняет в ваших кампаниях, просто делает рекламу дешевле.»
+    </div>
+
+    <div class="compare">
+      <div class="compare-card">
+        <div class="ct">Кредитная линия</div>
+        <div class="cv">Мы <strong>не предоставляем</strong>. Это услуга прямого договора с Яндексом. Честно говорим и предлагаем посчитать, что выгоднее — отсрочка платежа или накопление бонусов.</div>
+      </div>
+      <div class="compare-card">
+        <div class="ct">Перенос аккаунта</div>
+        <div class="cv">Только с <strong>1-го числа</strong> месяца — техническое ограничение. Оформляется через заявку (кнопка в интерфейсе платформы). Новый проект — в любое время. Баланс: дорасходовать или вернуть через Яндекс.</div>
+      </div>
+      <div class="compare-card">
+        <div class="ct">Бесшовный перенос</div>
+        <div class="cv">Только из <strong>Яндекс Директ</strong> — самый популярный запрос. В разработке, скоро будет. Собираем контакты заинтересованных клиентов и уведомляем первыми.</div>
+      </div>
+      <div class="compare-card">
+        <div class="ct">Прямой аккаунт</div>
+        <div class="cv">Клиентам, работающим через PromoPult, переход в прямой аккаунт <strong>не предлагаем</strong> — это невыгодно компании.</div>
+      </div>
+      <div class="compare-card">
+        <div class="ct">Вывод бонусов — конечник</div>
+        <div class="cv">Прямой вывод на карту недоступен (правила Яндекса). Варианты: пополнить кабинет WB или перевести баллы на наш аккаунт → получить деньги на реквизиты за 2–3 дня. <strong>Не называть кэшбэком вслух.</strong></div>
+      </div>
+      <div class="compare-card">
+        <div class="ct">Статус агентства</div>
+        <div class="cv">Даёт прямой вывод на карту/WebMoney. Критерии: 3+ прямых аккаунта у нас, нет доминирующего бюджета, есть страница агентства. Ставится в профиле → Прочие параметры → Дискаунтер-тип.</div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>

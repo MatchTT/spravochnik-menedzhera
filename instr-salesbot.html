@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Salesbot: как отправить шаблон — Справочник менеджера</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<svg style="display:none" aria-hidden="true">
+<symbol id="i-head" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 15a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 2z"/><path d="M3 15a2 2 0 0 0 2 2h1v-5H5a2 2 0 0 0-2 2z"/><path d="M18 17v1a3 3 0 0 1-3 3h-3"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></symbol>
+<symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></symbol>
+<symbol id="i-q" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+</svg>
+<div class="wrap">
+
+<a class="back" href="razdel-messendzhery.html">← Мессенджеры</a>
+<div class="head"><h1>Salesbot: как отправить шаблон</h1></div>
+<div class="box accent">Боты — только для недозвона (кроме «ВБ · инструкции», он отправляется после разговора). Сразу после первого недозвона отправляем шаблон по недозвону. Бот сам подставит имя клиента и ваше имя.</div>
+<div class="box warn"><b>Строго по порядку:</b> сначала контакт, потом чат. Если просто добавить номер и сразу искать бота, Salesbot в списке не появится.</div>
+<div class="step"><div class="num">1</div><div class="step-body"><div class="step-t">Добавьте контакт</div><div class="step-d">В сделке нажмите «Добавить контакт» и впишите номер телефона. В поле имени — только имя с большой буквы, например «Ирина». Имя берём то, что клиент указал при регистрации.</div>
+<div class="opts"><div class="opt"><b>Имя есть и корректное → </b>вписываем. Сообщение придёт именное: «Ирина, добрый день!»</div><div class="opt"><b>Имени нет, оно на английском или странное (логин, почта, набор символов) → </b>поле оставляем пустым. Сообщение придёт без имени.</div></div></div></div>
+<div class="step"><div class="num">2</div><div class="step-body"><div class="step-t">Откройте чат</div><div class="step-d">Внизу сделки нажмите на синее слово «Примечание» и выберите «Чат».</div><img class="shot" src="img/salesbot-1.webp" alt="Меню: Чат, E-mail, Примечание, Задача"></div></div>
+<div class="step"><div class="num">3</div><div class="step-body"><div class="step-t">Выберите Salesbot</div><div class="step-d">Появится «Чат для …». Нажмите на эту надпись и в блоке «Боты» выберите Salesbot.</div><img class="shot" src="img/salesbot-2.webp" alt="Блок Боты → Salesbot"></div></div>
+<div class="step"><div class="num">4</div><div class="step-body"><div class="step-t">Нажмите стрелочку ˅</div><div class="step-d">Рядом с «Чат для Salesbot».</div><img class="shot" src="img/salesbot-3.webp" alt="Стрелочка справа от Salesbot"></div></div>
+<div class="step"><div class="num">5</div><div class="step-body"><div class="step-t">Выберите шаблон</div><div class="step-d">Сначала мессенджер, потом сценарий. Например, «/WA· Обратный звонок». Какой выбрать — <a href="shablony-salesbot.html" style="text-decoration:underline">таблица в Шаблонах</a>.</div><img class="shot" src="img/salesbot-4.webp" alt="Список шаблонов"></div></div>
+<div class="step"><div class="num">6</div><div class="step-body"><div class="step-t">Нажмите «Запуск» и проверьте статус</div><div class="step-d">Через несколько секунд в ленте сделки появится синее сообщение «SalesBot (название бота)».</div><img class="shot" src="img/salesbot-5.webp" alt="Сообщение доставлено">
+<div class="opts"><div class="opt"><b>✓ Доставлено — </b>всё хорошо, клиент получил сообщение.</div><div class="opt"><b>Ошибка — </b>мессенджер не принял сообщение. Пробуем следующий мессенджер.<img class="shot" src="img/salesbot-6.webp" alt="Ошибка" style="max-width:260px"></div><div class="opt"><b>Не видно сообщения — </b>обновите страницу (F5). Запускать бота повторно не нужно.</div></div></div></div>
+<div class="box"><b>Правила отправки</b><ul><li>Пишем в один мессенджер, не во все сразу</li><li>Шаблон выбираем по ситуации клиента</li><li>В имя контакта — только имя, без фамилии, компании, почты или ника</li><li>Есть вопрос или не хватает бота — приходите к Лилии с предложениями</li></ul></div>
+
+<div class="foot">Справочник менеджера PromoPult · Рег1</div>
+</div>
+<script src="assets/app.js"></script>
+
+</body>
+</html>

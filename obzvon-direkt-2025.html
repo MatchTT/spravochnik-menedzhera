@@ -338,6 +338,17 @@
   p:last-child { margin-bottom: 0; }
   strong { color: #1a1a2e; }
 </style>
+<style id="mobile-fix">@media(max-width:620px){
+[style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns: 1fr 1fr"]{grid-template-columns:1fr!important}
+.example-pair,.rules-grid,.cheatsheet-body,.grid2,.two-col{grid-template-columns:1fr!important}
+.page-header,.header{padding:22px 16px!important}
+.main{padding:16px!important}
+.toc,.section,.cheatsheet{margin-left:12px!important;margin-right:12px!important}
+.section-body,.cheatsheet-body{padding:16px!important}
+.rules-col:first-child{border-right:none!important;padding-right:0!important}.rules-col:last-child{padding-left:0!important;margin-top:12px}
+img{max-width:100%!important;height:auto}
+table{display:block;overflow-x:auto}
+}</style>
 </head>
 <body><div style="position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid #e4e4e7;padding:10px 20px;font:500 13px Inter,system-ui,sans-serif"><a href="razdel-zvonki.html" style="color:#71717a;text-decoration:none">← Звонки</a></div>
 <div class="page">
